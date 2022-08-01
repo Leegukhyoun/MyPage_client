@@ -4,9 +4,10 @@ import { HiOutlineArrowCircleRight } from 'react-icons/hi';
 import { AiOutlinePicture } from 'react-icons/ai';
 import { Calender } from './Calendar/Calender';
 import RightDday from './RightDday';
+import NorMemoView from './NorMemoView';
 
 
-const MainRight = () => {
+const MainRight = ({right}) => {
     return (
         <div id='mainright'>
             <div id='rightTop'>
@@ -98,20 +99,9 @@ const MainRight = () => {
                             <li>글쓴이</li>
                         </ul>
                         <ul id='boardUl'>
-                            <li>
-                                <ul>
-                                    <li>07-28</li>
-                                    <li><span>오늘 저녁 살거 메모</span></li>
-                                    <li>박성수</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul>
-                                    <li>07-28</li>
-                                    <li><span>초코팅촉 판매점 목록</span></li>
-                                    <li>이국현</li>
-                                </ul>
-                            </li>
+                            {right.map(Data=>
+                                <NorMemoView Data={Data} key={Data.id}/>   
+                            )}
                         </ul>
                     </div>
                     <div id='calendar'>

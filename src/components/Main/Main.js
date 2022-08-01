@@ -3,12 +3,12 @@ import MainFixed from './MainFixed';
 import MainLeft from './MainLeft/MainLeft';
 import MainRight from './MainRight/MainRight';
 
-const Main = () => {
+const Main = ({info, right}) => {
     return (
         <div id='mainIndex'>
             <div id='maindivide' className='inner'>
-                <MainLeft />
-                <MainRight />
+                <MainLeft info={info}/>
+                <MainRight right={right}/>
                 <MainFixed />
             </div>
         </div>

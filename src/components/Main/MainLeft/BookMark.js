@@ -1,20 +1,15 @@
 import React from 'react';
+import BookMemo from './BookMemo';
 
-const BookMark = () => {
+const BookMark = ({info}) => {
     return (
         <div id='bookmark'>
             <div id='todoList'>
                 <div id='todoItem'>
                     <ul>
-                        <li>
-                            <div id='itemText'><p>감자 3개 고구마 2개 사오기</p></div>
-                            <div id='itemDel'>
-                                <div>
-                                    <span className='itemBtn'></span>
-                                    <span className='itemBtn'></span>
-                                </div>
-                            </div>
-                        </li>
+                        {info.map(info=>
+                            <BookMemo info={info}/>
+                            )}
                     </ul>
                 </div>
                 <div id='todoAdd'>

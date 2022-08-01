@@ -25,6 +25,7 @@
     "slick-carousel": "^1.8.1",
     "styled": "^1.0.0",
     "styled-components": "^5.3.5",
+    "thunk": "^0.0.1",
     "web-vitals": "^2.1.4",
     "yarn": "^1.22.19"
   },

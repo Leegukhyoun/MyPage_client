@@ -1,45 +1,26 @@
-// 리덕스 액션타입, 초깃갑, 액션 생성 함수, 리듀서
-const MSG_TOGGLE = "MSG_TOGGLE";
-const CAL_TOGGLE = "CAL_TOGGLE";
+const HEADER_ON = "HEADER_ON";
+
 
 const initialState = {
     utils: {
-        scrollindex : 1,
-        resMsgbox : false,
-        resCalbox : false,
-        whitecolor : '#fff',
-        blackcolor : '#000',
+        headerToggle : false,
     },
 }
 
-export const toggleMsg = () => {
+export const headerOn = () => {
     return {
-        type: MSG_TOGGLE,
-    }
-}
-export const toggleCal = (Cal) => {
-    return {
-        type: CAL_TOGGLE,
-        Cal
+        type: HEADER_ON,
     }
 }
 
 export default function utils(state = initialState, action) {
     switch (action.type) {
-        case MSG_TOGGLE:
+        case HEADER_ON:
             return {
                 ...state,
                 utils: {
                     ...state.utils,
-                    resMsgbox: !state.utils.resMsgbox,
-                }
-            }
-        case CAL_TOGGLE:
-            return {
-                ...state,
-                utils: {
-                    ...state.utils,
-                    resCalbox: action.Cal,
+                    headerToggle: true,
                 }
             }
         default:

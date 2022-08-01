@@ -28,7 +28,7 @@ export const pointUser = () => async dispatch => {
     dispatch({type: GET_USER});
     //eslint-disable-next-line
     try {
-        const response = await axios.get(`http://localhost:3001/users/tear`);
+        const response = await axios.get(`http://localhost:3001/mainindex/tear`);
         const user = response.data;
         dispatch({type:GET_USER_SUCCESS, user})
     }
@@ -37,7 +37,7 @@ export const pointUser = () => async dispatch => {
     }
 }
 
-export default function res(state = initialState, action) {
+export default function users(state = initialState, action) {
     switch (action.type) {
         case GET_USER:
             return {
@@ -45,7 +45,7 @@ export default function res(state = initialState, action) {
                 user: {
                     loading: true,
                     data: null,
-                    error: null
+                    error: null,
                 }
             }
         case GET_USER_SUCCESS:
@@ -54,7 +54,7 @@ export default function res(state = initialState, action) {
                 user: {
                     loading: false,
                     data: action.user,
-                    error: null
+                    error: null,
                 }
             }
         case GET_USER_ERROR:

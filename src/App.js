@@ -3,7 +3,7 @@ import FrontDoor from './components/Front/FrontDoor';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Include/Header'
 import Footer from './components/Include/Footer'
-import MainIndex from './components/Main/MainIndex';
+import MainContainer from './containers/MainContainer';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<FrontDoor />} />
-        <Route path="/mainindex" element={<MainIndex />} />
+        <Route path="/mainindex" element={<MainContainer/>} />
       </Routes>
       <Footer />
     </div>
