@@ -1,6 +1,7 @@
 import React from 'react';
 import { MdOutlineEventNote } from 'react-icons/md';
 import { HiOutlineArrowCircleRight } from 'react-icons/hi';
+import { AiOutlinePicture } from 'react-icons/ai';
 import { Calender } from './Calendar/Calender';
 import RightDday from './RightDday';
 
@@ -9,6 +10,14 @@ const MainRight = () => {
     return (
         <div id='mainright'>
             <div id='rightTop'>
+                <div id='picTitle'>
+                    <div></div>
+                    <h2><AiOutlinePicture /><p>사진 메모</p></h2>
+                    <div className='boardmore'>
+                        <p>더보기</p>
+                        <span><HiOutlineArrowCircleRight /></span>
+                    </div>
+                </div>
                 <div id='picView'>
                     <ul className='picboard'>
                         <li><img src='images/messi.jpg' alt='' /></li>
@@ -78,7 +87,7 @@ const MainRight = () => {
                             <h4>
                                 일반 메모 게시판
                             </h4>
-                            <div id='boardmore'>
+                            <div className='boardmore'>
                                 <p>더보기</p>
                                 <span><HiOutlineArrowCircleRight/></span> 
                             </div>

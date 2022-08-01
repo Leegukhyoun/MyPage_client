@@ -1,15 +1,19 @@
 import './App.scss';
 import FrontDoor from './components/Front/FrontDoor';
 import { Routes, Route } from 'react-router-dom';
-import MainIndex from './components/Main/MainIndex';
+import Main from './components/Main/Main';
+import Header from './components/Include/Header'
+import Footer from './components/Include/Footer'
 
 function App() {
   return (
     <div className="App">
-        <Routes>
-          <Route path="/" element={<FrontDoor/>}/>
-          <Route path="/mainindex/*" element={<MainIndex/>}/>
-        </Routes>
+      <Header />
+      <Routes>
+        <Route path="/" element={<FrontDoor />} />
+        <Route path="/main/:userId" element={<Main />} />
+      </Routes>
+      <Footer />
     </div>
   );
 }

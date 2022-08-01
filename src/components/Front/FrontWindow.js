@@ -1,17 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom'
+const FrontWindow = ({onHome, onChange, onSubmit, loginUser}) => {
 
-const FrontWindow = () => {
+    const onSubmitch = (e) => {
+        e.preventDefault();
+        if(loginUser.userId !== "" && loginUser.userPw !== ""){
+            onSubmit();
+        }
+    }
+
+
     return (
         <div id='frontWindow'>
             <h2 id='loginTitle'>회원 로그인</h2>
-            <form id='loginForm'>
+            <form id='loginForm' onSubmit={onSubmitch}>
                 <div id='loginInputs'>
-                    <input name='userId' value='' placeholder='아이디'/>
-                    <input name='userPw' value='' placeholder='비밀번호'/>
+                    <input name='userId' value={loginUser.userid} placeholder='아이디' onChange={onChange}/>
+                    <input name='userPw' value={loginUser.pw} placeholder='비밀번호' onChange={onChange}/>
                 </div>
                 <div id='loginShadow'>
-                    <Link to="/mainindex"><button>로그인</button></Link>
+                    <button type='submit'>로그인</button>
+                    {/* <Link to="/mainindex"><button>로그인</button></Link> */}
                 </div> 
             </form>
             <div id='loginMenus'>

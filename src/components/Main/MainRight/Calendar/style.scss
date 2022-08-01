@@ -111,6 +111,12 @@
                     opacity: 0.1;
                 }
             }
+            .col.cell.valid {
+                transition: 0.2s;
+                    &:hover {
+                        box-shadow: 3px 3px 5px -4px;
+                    }
+            }
             .col.cell.selected {
                 transform: scale(1.02);
                 background: #a0b8ff98;

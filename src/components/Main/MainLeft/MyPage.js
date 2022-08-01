@@ -3,6 +3,8 @@ import { FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const MyPage = () => {
+
+    
     return (
         <div id='myPage'>
             <div id='status'>
@@ -12,7 +14,7 @@ const MyPage = () => {
                 </div>
                 </Link>
                 <div id='myInfo'>
-                    <p>피콜로님</p>
+                    <p>님</p>
                     <p>freiheit512@naver.com</p>
                 </div>
                 <button>로그아웃</button>

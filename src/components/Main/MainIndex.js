@@ -9,12 +9,12 @@ import CreatePic from './CreatePic/CreatePic';
 const MainIndex = () => {
     return (
         <>
-        <Header/>
+
             <Routes>
                 <Route path="/" element={<Main/>}/>
                 <Route path="createpic" element={<CreatePic/>}/>
             </Routes>
-        <Footer/>
+
         </>
     );
 };

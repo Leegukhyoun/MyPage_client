@@ -1,5 +1,4 @@
 // 리덕스 액션타입, 초깃갑, 액션 생성 함수, 리듀서
-const SET_SCROLLINDEX = "SET_SCROLLINDEX";
 const MSG_TOGGLE = "MSG_TOGGLE";
 const CAL_TOGGLE = "CAL_TOGGLE";
 
@@ -13,12 +12,6 @@ const initialState = {
     },
 }
 
-export const setScroll = (scrollindex) => {
-    return {
-        type: SET_SCROLLINDEX,
-        scrollindex
-    }
-}
 export const toggleMsg = () => {
     return {
         type: MSG_TOGGLE,
@@ -33,14 +26,6 @@ export const toggleCal = (Cal) => {
 
 export default function utils(state = initialState, action) {
     switch (action.type) {
-        case SET_SCROLLINDEX:
-            return {
-                ...state,
-                utils: {
-                    ...state.utils,
-                    scrollindex: action.scrollindex,
-                }
-            }
         case MSG_TOGGLE:
             return {
                 ...state,
