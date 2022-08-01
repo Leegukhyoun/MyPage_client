@@ -1,7 +1,7 @@
 import { Carousel } from 'antd';
 import React from 'react';
 import "antd/dist/antd.css";
-import LoginContainer from '../../container/LoginContainer';
+import FrontWindow from './FrontWindow';
 
 const contentStyle = {
   height: `100vh`,
@@ -26,7 +26,7 @@ const FrontDoor = () => (
       <img src='images/i16272991965.png' alt='' />
     </div>
   </Carousel>
-  <LoginContainer/>
+  <FrontWindow />
   </>
 );
 
