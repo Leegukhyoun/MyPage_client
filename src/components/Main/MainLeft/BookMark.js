@@ -1,5 +1,6 @@
 import React from 'react';
 import BookMemo from './BookMemo';
+import { BsPencil } from 'react-icons/bs';
 
 const BookMark = ({info}) => {
     return (
@@ -7,6 +8,7 @@ const BookMark = ({info}) => {
             <div id='todoList'>
                 <div id='todoItem'>
                     <ul>
+                        <li className='emerMemoTitle'><BsPencil/><p>간단메모</p></li>
                         {info.map(info=>
                             <BookMemo info={info}/>
                             )}

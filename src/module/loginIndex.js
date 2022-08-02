@@ -11,24 +11,11 @@ const initialState = {
     },
 }
 
-export const searchUsers = () => async dispatch => {
-    dispatch({type: GET_USER});
-    //eslint-disable-next-line
-    try {
-        const response = await axios.get(`http://localhost:3001/users`);
-        const user = response.data;
-        dispatch({type:GET_USER_SUCCESS, user})
-    }
-    catch(e){
-        dispatch({type:GET_USER_ERROR, error : e})
-    }
-}
-
 export const pointUser = () => async dispatch => {
     dispatch({type: GET_USER});
     //eslint-disable-next-line
     try {
-        const response = await axios.get(`http://localhost:3001/mainindex/tear`);
+        const response = await axios.get(`http://localhost:3001/mainindex/freiheit512`);
         const user = response.data;
         dispatch({type:GET_USER_SUCCESS, user})
     }

@@ -5,9 +5,11 @@ import { AiOutlinePicture } from 'react-icons/ai';
 import { Calender } from './Calendar/Calender';
 import RightDday from './RightDday';
 import NorMemoView from './NorMemoView';
+import PicItem from './PicItem';
+import PicItemVoid from './PicItemVoid';
 
 
-const MainRight = ({right}) => {
+const MainRight = ({pic, nor, dday}) => {
     return (
         <div id='mainright'>
             <div id='rightTop'>
@@ -20,66 +22,10 @@ const MainRight = ({right}) => {
                     </div>
                 </div>
                 <div id='picView'>
-                    <ul className='picboard'>
-                        <li><img src='images/messi.jpg' alt='' /></li>
-                        <li>
-                            <h5>웰시코기 메시</h5>
-                            <p>
-                                <div className='userIcon'>
-                                    <img src='images/wak.jpg' alt='' />
-                                </div>
-                                <div className='picName'>
-                                    오영택
-                                </div>
-                            </p>
-                        </li>
-                        <div className='blackbg'><p>자세히보기</p></div>
-                    </ul> 
-                    <ul className='picboard'>
-                        <li><img src='images/messi.jpg' alt='' /></li>
-                        <li>
-                            <h5>웰시코기 메시</h5>
-                            <p>
-                                <div className='userIcon'>
-                                    <img src='images/wak.jpg' alt='' />
-                                </div>
-                                <div className='picName'>
-                                    오영택
-                                </div>
-                            </p>
-                        </li>
-                        <div className='blackbg'><p>자세히보기</p></div>
-                    </ul> 
-                    <ul className='picboard'>
-                        <li><img src='images/messi.jpg' alt='' /></li>
-                        <li>
-                            <h5>웰시코기 메시</h5>
-                            <p>
-                                <div className='userIcon'>
-                                    <img src='images/wak.jpg' alt='' />
-                                </div>
-                                <div className='picName'>
-                                    오영택
-                                </div>
-                            </p>
-                        </li>
-                        <div className='blackbg'><p>자세히보기</p></div>
-                    </ul> 
-                    <ul className='picboard'>
-                        <li><img src='images/messi.jpg' alt='' /></li>
-                        <li>
-                            <h5>웰시코기 메시</h5>
-                            <p>
-                                <div className='userIcon'>
-                                    <img src='images/wak.jpg' alt='' />
-                                </div>
-                                <div className='picName'>
-                                    오영택
-                                </div>
-                            </p>
-                        </li>
-                        <div className='blackbg'><p>자세히보기</p></div>
-                    </ul> 
+                    {pic.map(Data =>
+                        <PicItem Data={Data} key={Data.id} />
+                    )}
+                    <PicItemVoid pic={pic}/>
                 </div>
                 <div id='boaCal'>
                     <div id='board'>
@@ -99,7 +45,7 @@ const MainRight = ({right}) => {
                             <li>글쓴이</li>
                         </ul>
                         <ul id='boardUl'>
-                            {right.map(Data=>
+                            {nor.map(Data=>
                                 <NorMemoView Data={Data} key={Data.id}/>   
                             )}
                         </ul>
@@ -110,7 +56,7 @@ const MainRight = ({right}) => {
                 </div>
             </div>
             <div id='rightBot'>
-                <RightDday/>
+                <RightDday dday={dday}/>
             </div>
         </div>
     );

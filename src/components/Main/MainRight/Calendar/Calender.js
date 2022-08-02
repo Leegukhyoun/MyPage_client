@@ -3,6 +3,7 @@ import { Icon } from '@iconify/react';
 import { format, addMonths, subMonths } from 'date-fns';
 import { startOfMonth, endOfMonth, startOfWeek, endOfWeek } from 'date-fns';
 import { isSameMonth, isSameDay, addDays } from 'date-fns';
+import { useDispatch, useSelector } from 'react-redux';
 import './style.scss';
 
 const RenderHeader = ({ currentMonth, prevMonth, nextMonth }) => {
@@ -39,6 +40,7 @@ const RenderDays = () => {
 };
 
 const RenderCells = ({ currentMonth, selectedDate, onDateClick }) => {
+    const { data, loading, error } = useSelector(state=>state.loginIndex.user);
     const monthStart = startOfMonth(currentMonth);
     const monthEnd = endOfMonth(monthStart);
     const startDate = startOfWeek(monthStart);

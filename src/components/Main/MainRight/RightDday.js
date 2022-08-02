@@ -1,36 +1,14 @@
 import React from 'react';
+import DdayItem from './DdayItem';
+import DdayItemVoid from './DdayItemVoid';
 
-const RightDday = () => {
+const RightDday = ({dday}) => {
     return (
         <div id='DDay'>
-            <div className='ddayDiv'>
-                <div>날짜 : </div>
-                <div>2022-08-29</div>
-                <div>내용 : </div>
-                <div>박성수 편의점 알바</div>
-                <div>X일 남았습니다.</div>
-            </div>
-            <div className='ddayDiv'>
-                <div>날짜 : </div>
-                <div>2022-08-29</div>
-                <div>내용 : </div>
-                <div>박성수 편의점 알바</div>
-                <div>X일 남았습니다.</div>
-            </div>
-            <div className='ddayDiv'>
-                <div>날짜 : </div>
-                <div>2022-08-29</div>
-                <div>내용 : </div>
-                <div>박성수 편의점 알바</div>
-                <div>X일 남았습니다.</div>
-            </div>
-            <div className='ddayDiv'>
-                <div>날짜 : </div>
-                <div>2022-08-29</div>
-                <div>내용 : </div>
-                <div>박성수 편의점 알바</div>
-                <div>X일 남았습니다.</div>
-            </div>
+            {dday.map(dday =>
+                <DdayItem dday={dday} key={dday.id} />
+            )}
+            <DdayItemVoid dday={dday}/>
         </div>
     );
 };
