@@ -6,7 +6,6 @@ import { headerOn } from '../module/pageutils';
 
 const MainContainer = () => {
     const { data, loading, error } = useSelector(state=>state.loginIndex.user);
-    console.log(data);
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(pointUser());

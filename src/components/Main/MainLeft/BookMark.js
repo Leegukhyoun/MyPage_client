@@ -1,6 +1,7 @@
 import React from 'react';
 import BookMemo from './BookMemo';
 import { BsPencil } from 'react-icons/bs';
+import BookMemoWindow from './BookMemoWindow';
 
 const BookMark = ({info}) => {
     return (
@@ -20,6 +21,7 @@ const BookMark = ({info}) => {
                         <span className='todoPlusBtn'></span>
                     </div>
                 </div>
+                <BookMemoWindow/>
             </div>
         </div>
     );

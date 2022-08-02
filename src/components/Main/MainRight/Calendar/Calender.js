@@ -41,6 +41,11 @@ const RenderDays = () => {
 
 const RenderCells = ({ currentMonth, selectedDate, onDateClick }) => {
     const { data, loading, error } = useSelector(state=>state.loginIndex.user);
+    const dday1 = data[4][0] ? new Date(data[4][0].date) : null;
+    const dday2 = data[4][1] ? new Date(data[4][1].date) : null;
+    const dday3 = data[4][2] ? new Date(data[4][2].date) : null;
+    const dday4 = data[4][3] ? new Date(data[4][3].date) : null;
+
     const monthStart = startOfMonth(currentMonth);
     const monthEnd = endOfMonth(monthStart);
     const startDate = startOfWeek(monthStart);
@@ -61,6 +66,14 @@ const RenderCells = ({ currentMonth, selectedDate, onDateClick }) => {
                             ? 'disabled'
                             : isSameDay(day, selectedDate)
                             ? 'selected'
+                            : isSameDay(day, dday1)
+                            ? 'dday'
+                            : isSameDay(day, dday2)
+                            ? 'dday'
+                            : isSameDay(day, dday3)
+                            ? 'dday'
+                            : isSameDay(day, dday4)
+                            ? 'dday'
                             : format(currentMonth, 'M') !== format(day, 'M')
                             ? 'not-valid'
                             : 'valid'

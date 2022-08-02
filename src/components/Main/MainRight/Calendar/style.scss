@@ -117,6 +117,13 @@
                         box-shadow: 3px 3px 5px -4px;
                     }
             }
+            .col.cell.dday {
+                transition: 0.2s;
+                background: rgba(255, 176, 176, 0.349);
+                    &:hover {
+                        box-shadow: 3px 3px 5px -4px;
+                    }
+            }
             .col.cell.selected {
                 transform: scale(1.02);
                 background: #a0b8ff98;

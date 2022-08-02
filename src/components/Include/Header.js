@@ -6,6 +6,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 const Header = () => {
     const { headerToggle } = useSelector(state=>state.pageutils.utils);
+    const dispatch = useDispatch();
+    
     return (
         <div id='header' style={{display : headerToggle ? 'block' : 'none'}}>
             <div className='inner'>
