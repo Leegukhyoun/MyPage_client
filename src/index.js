@@ -8,6 +8,7 @@ import { applyMiddleware, legacy_createStore as createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './module';
 import thunk from 'redux-thunk';
+import { CookiesProvider } from 'react-cookie';
 
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
@@ -18,7 +19,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        <App />
+        <CookiesProvider>
+          <App />
+        </CookiesProvider>
       </Provider>
     </BrowserRouter>
   </React.StrictMode>

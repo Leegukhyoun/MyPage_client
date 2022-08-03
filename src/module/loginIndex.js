@@ -1,21 +1,52 @@
 import axios from "axios";
+import { getCookie } from "../util/cookie";
 
 const GET_USER = "GET_RGET_USERES";
 const GET_USER_ERROR = "GET_USER_ERROR";
 const GET_USER_SUCCESS = "GET_USER_SUCCESS";
+const SET_LOGIN = "SET_LOGIN";
+const SET_LOGOUT = "SET_LOGOUT";
+const SET_USERID = "SET_USERID";
 const initialState = {
     user: {
         loading: false,
         data: null,
         error: null,
     },
+    login : {
+        isLogin : false,
+        userid : ""
+    }
 }
 
+export const setLogin = () => {
+    return {
+        type : SET_LOGIN
+    }
+}
+export const setLogout = () => {
+    return {
+        type : SET_LOGOUT
+    }
+}
+export const setuserid = (userid) => {
+    return {
+        type : SET_USERID,
+        userid
+    }
+}
+export const goToHome = (navigate) => () => {
+    navigate(`/mainindex`);
+}
+export const goToLogin = (navigate) => () => {
+    navigate(`/`);
+}
 export const pointUser = () => async dispatch => {
     dispatch({type: GET_USER});
+    const id = getCookie('userid');
     //eslint-disable-next-line
     try {
-        const response = await axios.get(`http://localhost:3001/mainindex/freiheit512`);
+        const response = await axios.get(`http://localhost:3001/mainindex/${id}`);
         const user = response.data;
         dispatch({type:GET_USER_SUCCESS, user})
     }
@@ -51,6 +82,27 @@ export default function users(state = initialState, action) {
                     loading: false,
                     data: null,
                     error: action.error
+                }
+            }
+        case SET_LOGIN:
+            return {
+                ...state,
+                login : {
+                    isLogin: true
+                }
+            }
+        case SET_LOGOUT:
+            return {
+                ...state,
+                login : {
+                    isLogin: true
+                }
+            }
+        case SET_USERID:
+            return {
+                ...state,
+                login: {
+                    userid: action.userid
                 }
             }
         default:

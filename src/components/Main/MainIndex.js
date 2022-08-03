@@ -2,10 +2,10 @@ import React from 'react';
 import Main from './Main';
 
 
-const MainIndex = ({info, right}) => {
+const MainIndex = ({info, openBMW, onBMWOn, onBMWOff}) => {
     return (
         <>
-        <Main info={info} right={right}/>
+        <Main info={info} openBMW={openBMW} onBMWOn={onBMWOn} onBMWOff={onBMWOff}/>
         </>
     );
 };

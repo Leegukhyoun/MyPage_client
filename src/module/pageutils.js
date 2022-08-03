@@ -1,10 +1,14 @@
 const HEADER_ON = "HEADER_ON";
-const OPEN_BMW = "OPEN_BMW";
+const HEADER_OFF = "HEADER_OFF";
+const ON_BMW = "ON_BMW";
+const CLOSE_BMW = "CLOSE_BMW";
+const TOGGLE_JW = "TOGGLE_JW";
 
 const initialState = {
     utils: {
         headerToggle : false,
-        OPEN_BMW : false
+        openBMW : false,
+        openJW : false,
     },
 }
 
@@ -13,9 +17,24 @@ export const headerOn = () => {
         type: HEADER_ON,
     }
 }
-export const openBMW = () => {
+export const headerOFF = () => {
     return {
-        type: OPEN_BMW,
+        type: HEADER_OFF,
+    }
+}
+export const onBMW = () => {
+    return {
+        type: ON_BMW,
+    }
+}
+export const closeBMW = () => {
+    return {
+        type: CLOSE_BMW,
+    }
+}
+export const toggleJW = () => {
+    return {
+        type: TOGGLE_JW,
     }
 }
 
@@ -29,12 +48,36 @@ export default function utils(state = initialState, action) {
                     headerToggle: true,
                 }
             }
-        case OPEN_BMW:
+        case HEADER_OFF:
             return {
                 ...state,
                 utils: {
                     ...state.utils,
-                    OPEN_BMW: !state.utils.OPEN_BMW,
+                    headerToggle: false,
+                }
+            }
+        case ON_BMW:
+            return {
+                ...state,
+                utils: {
+                    ...state.utils,
+                    openBMW: true,
+                }
+            }
+        case CLOSE_BMW:
+            return {
+                ...state,
+                utils: {
+                    ...state.utils,
+                    openBMW: false,
+                }
+            }
+        case TOGGLE_JW:
+            return {
+                ...state,
+                utils: {
+                    ...state.utils,
+                    openJW: !state.utils.openJW,
                 }
             }
         default:

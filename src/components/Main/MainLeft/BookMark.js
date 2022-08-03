@@ -3,7 +3,7 @@ import BookMemo from './BookMemo';
 import { BsPencil } from 'react-icons/bs';
 import BookMemoWindow from './BookMemoWindow';
 
-const BookMark = ({info}) => {
+const BookMark = ({info, openBMW, onBMWOn, onBMWOff}) => {
     return (
         <div id='bookmark'>
             <div id='todoList'>
@@ -16,12 +16,12 @@ const BookMark = ({info}) => {
                     </ul>
                 </div>
                 <div id='todoAdd'>
-                    <div id='todoBtn'>
+                    <div id='todoBtn' onClick={onBMWOn}>
                         <span className='todoPlusBtn'></span>
                         <span className='todoPlusBtn'></span>
                     </div>
                 </div>
-                <BookMemoWindow/>
+                <BookMemoWindow openBMW={openBMW} onBMWOff={onBMWOff}/>
             </div>
         </div>
     );
