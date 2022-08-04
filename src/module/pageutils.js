@@ -3,12 +3,14 @@ const HEADER_OFF = "HEADER_OFF";
 const ON_BMW = "ON_BMW";
 const CLOSE_BMW = "CLOSE_BMW";
 const TOGGLE_JW = "TOGGLE_JW";
+const TOGGLE_DAW = "TOGGLE_DAW";
 
 const initialState = {
     utils: {
         headerToggle : false,
         openBMW : false,
         openJW : false,
+        openDAW : false,
     },
 }
 
@@ -35,6 +37,11 @@ export const closeBMW = () => {
 export const toggleJW = () => {
     return {
         type: TOGGLE_JW,
+    }
+}
+export const toggleDAW = () => {
+    return {
+        type: TOGGLE_DAW,
     }
 }
 
@@ -78,6 +85,14 @@ export default function utils(state = initialState, action) {
                 utils: {
                     ...state.utils,
                     openJW: !state.utils.openJW,
+                }
+            }
+        case TOGGLE_DAW:
+            return {
+                ...state,
+                utils: {
+                    ...state.utils,
+                    openDAW: !state.utils.openDAW,
                 }
             }
         default:

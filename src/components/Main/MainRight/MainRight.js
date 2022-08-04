@@ -7,6 +7,7 @@ import RightDday from './RightDday';
 import NorMemoView from './NorMemoView';
 import PicItem from './PicItem';
 import PicItemVoid from './PicItemVoid';
+import DdayAddWindow from './DdayAddWindow';
 
 
 const MainRight = ({pic, nor, dday}) => {
@@ -56,6 +57,7 @@ const MainRight = ({pic, nor, dday}) => {
                 </div>
             </div>
             <div id='rightBot'>
+                <DdayAddWindow />
                 <RightDday dday={dday}/>
             </div>
         </div>

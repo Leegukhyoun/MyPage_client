@@ -9,7 +9,7 @@ import { BsFillXCircleFill } from 'react-icons/bs';
 import PopupPostCode from './AddressSearch/PopupPostCode';
 import PopupDom from './AddressSearch/PopupDom';
 import { toggleJW } from '../../module/pageutils';
-import { setSignUpInput, setAddr } from '../../module/createUser';
+import { setSignUpInput, setAddr, setImg,setSignup } from '../../module/createUser';
 
 const FrontWindow = () => {
     const { openJW } = useSelector(state=>state.pageutils.utils);
@@ -44,7 +44,7 @@ const FrontWindow = () => {
                     //현재시간 객체 생성
                     let expires = new Date();
                     //60분 더한 값으로 변경
-                    expires.setMinutes(expires.getMinutes()+30);
+                    expires.setMinutes(expires.getMinutes()+120);
                     setCookie('userid', `${userid}`, {path : `/`, expires});
                     setCookie('pw', `${pw}`, {path : `/`, expires});
                     dispatch(setLogin());
@@ -68,6 +68,7 @@ const FrontWindow = () => {
 
     const SignUpInput = (e) => {
         dispatch(setSignUpInput(e));
+        console.log(createUser);
     }
 
     const [ isPopupOpen, setIsPopupOpen ] = useState(false);
@@ -82,12 +83,34 @@ const FrontWindow = () => {
         e.preventDefault();
         setIsPopupOpen(false);
     }
+
+    const [ imageUrl, setImageUrl ] = useState(null);
+
+    const onChangeImage = (e)=>{
+        const imgsrc = e.target.files[0].name;
+        setImageUrl(URL.createObjectURL(e.target.files[0]));
+        dispatch(setImg(imgsrc));
+    }
+
+    const onSubmitSign = () => {
+        if (createUser.userid === '' || createUser.name === '' || createUser.pw === '' || createUser.pwch === '') {
+            alert('필수 항목을 모두 입력해주세요.');
+        } else {
+            if (createUser.pw === createUser.pwch) {
+                dispatch(setSignup());
+                dispatch(toggleJW());
+                setImageUrl(null);
+            } else {
+                alert('입력하신 비밀번호와 비밀번호 확인이 일치하지 않습니다.')
+            }
+        }
+    }
     return (
         <div>
             <div style={{ display: openJW ? 'block' : 'none' }}>
                 <div id='frontBg' onClick={JWBtn}></div>
                 <div id='JoinWindow'>
-                    <form>
+                    <form action={`${API_URL}/image`} method="post" onSubmit={onSubmitSign} enctype="multipart/form-data">
                         <div id='JW'>
                             <div id='JWXcircle' onClick={JWBtn}><BsFillXCircleFill /></div>
                             <p id='readMe'>* 필수 입력</p>
@@ -98,12 +121,16 @@ const FrontWindow = () => {
                                     <td><input type="text" name='userid' value={createUser.userid} onChange={SignUpInput} placeholder='ID를 입력해주세요.' /></td>
                                 </tr>
                                 <tr>
+                                    <td>＊ 이름 : </td>
+                                    <td><input type="text" name='name' value={createUser.name} onChange={SignUpInput} placeholder='이름을 입력해주세요.' /></td>
+                                </tr>
+                                <tr>
                                     <td>＊ 비밀번호 : </td>
                                     <td><input type="text" name='pw' value={createUser.pw} onChange={SignUpInput} placeholder='비밀번호를 입력해주세요.' /></td>
                                 </tr>
                                 <tr>
                                     <td>＊ 비밀번호 확인 : </td>
-                                    <td><input type="text" name='pwch' onChange={SignUpInput} placeholder='비밀번호를 다시 입력해주세요.' /></td>
+                                    <td><input type="text" name='pwch' value={createUser.pwch} onChange={SignUpInput} placeholder='비밀번호를 다시 입력해주세요.' /></td>
                                 </tr>
                                 <tr>
                                     <td>연락처 : </td>
@@ -130,10 +157,22 @@ const FrontWindow = () => {
                                 </tr>
                                 <tr>
                                     <td>프로필 이미지 : </td>
-                                    <td><input type="file" name='img'/></td>
+                                    <td>
+                                        <input type="file" name='img' onChange={onChangeImage}  width="100px" height="100px"/>
+                                        {imageUrl ?        
+                                            (<div className='uploadImg'>
+                                                <img src={imageUrl} alt="" width="100px" height="100px" id='imgview'/>
+                                                <button>이미지 선택</button>
+                                            </div>)
+                                            :
+                                            (<div className='uploadImg'>
+                                                <img src={`${API_URL}/upload/no-image.png`} alt='' width="50px" height="50px" />
+                                                <button>이미지 선택</button>
+                                            </div>)}
+                                    </td>
                                 </tr>
                             </table>
-                            <button>등록</button>
+                            <button type='submit'>등록</button>
                         </div>
                     </form>
                 </div>

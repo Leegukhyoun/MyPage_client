@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import BookMemo from './BookMemo';
 import { BsPencil } from 'react-icons/bs';
 import BookMemoWindow from './BookMemoWindow';

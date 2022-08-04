@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setLogout, goToLogin } from '../../../module/loginIndex';
 import { removeCookie } from '../../../util/cookie';
 import { headerOFF } from '../../../module/pageutils';
+import { API_URL } from '../../../config/apiurl';
 
 const MyPage = ({info}) => {
     const navigate = useNavigate();
@@ -29,7 +30,7 @@ const MyPage = ({info}) => {
             <div id='status'>
                 <Link to="/mainindex/createpic">
                 <div id='imgSize'>
-                    <img src={`images/${user.img}`} alt='#' />
+                    <img src={`${API_URL}/upload/${user.img}`} alt='#' />
                 </div>
                 </Link>
                 <div id='myInfo'>

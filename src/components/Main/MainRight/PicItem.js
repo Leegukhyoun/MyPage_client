@@ -1,14 +1,15 @@
 import React from 'react';
+import { API_URL } from '../../../config/apiurl';
 
 const PicItem = ({Data}) => {
     return (
         <ul className='picboard'>
-            <li><img src={`images/${Data.picImg}`} alt='' /></li>
+            <li><img src={`${API_URL}/upload/${Data.picImg}`} alt='' /></li>
             <li>
                 <h5>{Data.pictitle}</h5>
                 <p>
                     <div className='userIcon'>
-                        <img src={`images/${Data.img}`} alt='' />
+                        <img src={`${API_URL}/upload/${Data.img}`} alt='' />
                     </div>
                     <div className='picName'>
                         {Data.name}

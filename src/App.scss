@@ -16,7 +16,11 @@
     font-weight: normal;
     font-style: normal;
 }
-
+@keyframes loadingAni {
+    0%{transform: rotate(0deg) scale(1);}
+    50%{transform: rotate(180deg) scale(1.05);}
+    100%{transform: rotate(360deg) scale(1);}
+}
 
 :root {
 
@@ -87,6 +91,34 @@ button{
     max-width: 1600px;
     margin: 0 auto;
     padding: 0;
+}
+#loading {
+    width: 100%;
+    height: 80vh;
+    img {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation-name: loadingAni;
+        animation-iteration-count: infinite;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;
+    }
+}
+#notCookie{
+    width: 100%;
+    height: 80vh;
+    p {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
 //reset end
 
@@ -918,6 +950,8 @@ button{
             input{
                 margin-bottom: 30px;
                 width: 80%;
+                border: 1px solid var(--border-color);
+                border-radius: 4px;
             }
             button{
                 width: 80%;
@@ -1025,7 +1059,7 @@ button{
     left: 50%;
     transform: translate(-50%, -50%);
     width: 550px;
-    height: 600px;
+    height: 650px;
     background: #fff;
     border-radius: 6px;
     border: 1px solid var(--border-color);
@@ -1092,7 +1126,7 @@ button{
                             }
                         }
                     }
-                    &:nth-child(4){
+                    &:nth-child(5){
                         td{
                             &:last-child{
                                 input{
@@ -1101,7 +1135,7 @@ button{
                             }
                         }
                     }
-                    &:nth-child(5){
+                    &:nth-child(6){
                         td{
                             &:last-child{
                                 input{
@@ -1110,7 +1144,7 @@ button{
                             }
                         }
                     }
-                    &:nth-child(6){
+                    &:nth-child(7){
                         input{
                             width: 75%;
                         }
@@ -1122,6 +1156,30 @@ button{
                     }
                     &:last-child{
                         height: 100px;
+                        td{
+                            width: 100px;
+                            position: relative;
+                            #imgview{
+                                width: 100px;
+                                height: 100px;
+                                border-radius: 10px;
+                                overflow: hidden;
+                                img{
+                                    width: 100px;
+                                    height: 100px;
+                                }
+                            }
+                            input{
+                                position: absolute;
+                                top: 50%;
+                                left: 27%;
+                                transform: translateY(-50%);
+                                width: 80px;
+                                height: 30px;
+                                padding: 0;
+                                opacity: 0;
+                            }
+                        }
                     }
                 }
             }
@@ -1130,7 +1188,102 @@ button{
                 height: 40px;
                 border-radius: 4px;
             }
+            .uploadImg{
+                width: 100%;
+                height: 100px;
+                display: flex;
+                align-items: center;
+                img{
+                    width: 100px;
+                }
+                button{
+                    height: 30px;
+                    border-radius: 4px;
+                    cursor: context-menu;
+                    margin-left: 10px;
+                }
+            }
         }
     }
 }
 //join end
+
+//dday add
+
+#DdayAdd{
+    #DAWbg{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.3);
+        z-index: 2;
+    }
+    #DdayAddWindow{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40%;
+        height: 70%;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        background: #fff;
+        z-index: 3;
+        overflow: hidden;
+        transition: 0.5s;
+        &:hover{
+            box-shadow: 3px 3px 5px -4px;
+        }
+        form{
+            width: 100%;
+            height: 100%;
+            #DAW{
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                h1{
+                    padding-top: 20px;
+                    color: var(--text-color);
+                }
+                input{
+                    width: 30%;
+                    margin-bottom: 30px;
+                    border: 1px solid var(--border-color);
+                    border-radius: 4px;
+                }
+                button{
+                    width: 20%;
+                    height: 60px;
+                    border-radius: 6px;
+                }
+                #DAWXcircle{
+                    position: absolute;
+                    width: 30px;
+                    height: 30px;
+                    top: 5%;
+                    right: 5%;
+                    font-size: 30px;
+                    color: var(--bg-color2);
+                    cursor: pointer;
+                    svg{
+                        cursor: pointer;
+                        path{
+                            cursor: pointer;
+                        }
+                    }
+                }
+                #DAWCal{
+                    width: 60%;
+                    height: 50%;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+}
+
+//dday add end
