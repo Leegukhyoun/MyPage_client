@@ -18,7 +18,6 @@ const MainContainer = () => {
         }else{
             <div id='notCookie'><p>쿠키 없음.</p></div>
         }
-        
     },[dispatch])
     useEffect(()=>{
         dispatch(headerOn());

@@ -8,6 +8,7 @@ import NorMemoView from './NorMemoView';
 import PicItem from './PicItem';
 import PicItemVoid from './PicItemVoid';
 import DdayAddWindow from './DdayAddWindow';
+import { Link } from 'react-router-dom';
 
 
 const MainRight = ({pic, nor, dday}) => {
@@ -17,10 +18,12 @@ const MainRight = ({pic, nor, dday}) => {
                 <div id='picTitle'>
                     <div></div>
                     <h2><AiOutlinePicture /><p>사진 메모</p></h2>
+                    <Link to="/picmemo">
                     <div className='boardmore'>
                         <p>더보기</p>
                         <span><HiOutlineArrowCircleRight /></span>
                     </div>
+                    </Link>
                 </div>
                 <div id='picView'>
                     {pic.map(Data =>
@@ -35,10 +38,12 @@ const MainRight = ({pic, nor, dday}) => {
                             <h4>
                                 일반 메모 게시판
                             </h4>
-                            <div className='boardmore'>
-                                <p>더보기</p>
-                                <span><HiOutlineArrowCircleRight/></span> 
-                            </div>
+                            <Link to="/normemo">
+                                <div className='boardmore'>
+                                    <p id='moreBtn'>더보기</p>
+                                    <span><HiOutlineArrowCircleRight /></span>
+                                </div>
+                            </Link>
                         </div>
                         <ul id='titleUl'>
                             <li>날짜</li>

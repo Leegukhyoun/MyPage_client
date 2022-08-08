@@ -1,4 +1,5 @@
 import React from 'react';
+import MainClock from './MainClock';
 import MainFixed from './MainFixed';
 import MainLeft from './MainLeft/MainLeft';
 import MainRight from './MainRight/MainRight';
@@ -10,6 +11,7 @@ const Main = ({info, openBMW, onBMWOn, onBMWOff}) => {
                 <MainLeft info={info} openBMW={openBMW} onBMWOn={onBMWOn} onBMWOff={onBMWOff}/>
                 <MainRight pic={info[3]} nor={info[1]} dday={info[4]}/>
                 <MainFixed />
+                <MainClock />
             </div>
         </div>
     );

@@ -6,11 +6,24 @@ import { setLogout, goToLogin } from '../../../module/loginIndex';
 import { removeCookie } from '../../../util/cookie';
 import { headerOFF } from '../../../module/pageutils';
 import { API_URL } from '../../../config/apiurl';
+import { toggleBM, setToggleMoreBM } from '../../../module/pageutils';
 
 const MyPage = ({info}) => {
     const navigate = useNavigate();
     const {isLogin} = useSelector(state=>state.loginIndex.login);
+    const {toggleMoreBM} = useSelector(state=>state.pageutils.utils);
     const dispatch = useDispatch();
+    const BMtoggle = () => {
+        if(toggleMoreBM){
+            dispatch(toggleBM());
+            onMoreBtn();
+        } else {
+            dispatch(toggleBM());
+        }
+    }
+    const onMoreBtn = () => {
+        dispatch(setToggleMoreBM());
+    }
     const logoutBtn = () => {
         removeCookie('userid');
         removeCookie('pw');
@@ -28,11 +41,9 @@ const MyPage = ({info}) => {
     return (
         <div id='myPage'>
             <div id='status'>
-                <Link to="/mainindex/createpic">
                 <div id='imgSize'>
                     <img src={`${API_URL}/upload/${user.img}`} alt='#' />
                 </div>
-                </Link>
                 <div id='myInfo'>
                     <p>{`${user.name}님`}</p>
                     <p>{`${user.email1}@${user.email2}`}</p>
@@ -40,12 +51,12 @@ const MyPage = ({info}) => {
                 <button onClick={logoutBtn}>로그아웃</button>
             </div>
             <div id='norSearch'>
-                <input type="text" placeholder='일반메모 검색' />
+                <input type="text" placeholder='일반메모 검색' autocomplete='off' spellcheck="false"/>
                 <div id='norSearchIcon'><FaSearch /></div>
             </div>
             <div id='botBtn'>
                 <button>내 정보</button>
-                <button>북마크</button>
+                <button onClick={BMtoggle}>북마크</button>
             </div>
         </div>
     );

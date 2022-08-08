@@ -4,6 +4,9 @@ import { Routes, Route } from 'react-router-dom';
 import Header from './components/Include/Header'
 import Footer from './components/Include/Footer'
 import MainContainer from './containers/MainContainer';
+import BookMarkContainer from './components/board/BookMarkContainer';
+import NorMemoContainer from './components/board/NorMemoContainer';
+import NorMemoCreate from './components/board/NorMemoCreate';
 
 function App() {
   return (
@@ -12,6 +15,9 @@ function App() {
       <Routes>
         <Route path="/" element={<FrontDoor />} />
         <Route path="/mainindex" element={<MainContainer/>} />
+        <Route path="/bookmark" element={<BookMarkContainer/>} />
+        <Route path="/normemo" element={<NorMemoContainer/>} />
+        <Route path="/normemocreate" element={<NorMemoCreate/>} />
       </Routes>
       <Footer />
     </div>

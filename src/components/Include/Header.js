@@ -25,8 +25,9 @@ const Header = () => {
         <div id='header' style={{display : headerToggle ? 'block' : 'none'}}>
             <div className='inner'>
                 <div id='innerHeader'>
-                    <Link to="/mainindex"><h1 id='title'>My Home</h1></Link>
+                    <Link to="/mainindex"><h1 id='title'>My Diary</h1></Link>
                     <ul>
+                        <Link to="/bookmark"><li>북마크 관리</li></Link>
                         <li>전화번호부</li>
                         <li>가계부</li>
                         <li onClick={logoutBtn}>로그아웃</li>

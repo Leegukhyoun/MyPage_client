@@ -22,6 +22,12 @@
     100%{transform: rotate(360deg) scale(1);}
 }
 
+@keyframes clockDot {
+    0%{opacity: 1;}
+    50%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
 :root {
 
     --border-color: #80a0ff;
@@ -92,6 +98,12 @@ button{
     margin: 0 auto;
     padding: 0;
 }
+.subinner{
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0;
+}
 #loading {
     width: 100%;
     height: 80vh;
@@ -119,6 +131,16 @@ button{
         left: 50%;
         transform: translate(-50%, -50%);
     }
+}
+
+.blackBg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.1);
+    z-index: 10;
 }
 //reset end
 
@@ -289,7 +311,7 @@ button{
     // background: rgba(175, 238, 238, 0.2);
     width: 100%;
     height: 100%;
-    #mainleft{
+    .mainleft{
         width: 19%;
         #myPage{
             position: relative;
@@ -412,6 +434,24 @@ button{
             position: absolute;
             width: 65%;
             height: 40px;
+            a{
+                height: 100%;
+                color: var(--text-color);
+                p{
+                    margin: 0;
+                    height: 100%;
+                    line-height: 40px;
+                }
+                span{
+                    height: 100%;
+                    svg{
+                        height: 100%;
+                        path{
+                            height: 100%;
+                        }
+                    }
+                }
+            }
             h2{
                 padding-left: 50px;
                 height: 100%;
@@ -440,15 +480,19 @@ button{
                 height: 100%;
                 transition: 0.1s ease-in-out;
                 cursor: pointer;
+                a{
+                    color: var(--text-color);
+                }
                 &:hover{
                     transform: scale(1.05);
                 }
-                p{
+                #moreBtn{
                     margin: 0;
                     height: 100%;
                     line-height: 40px;
                     font-size: 12px;
                     cursor: pointer;
+                    color: var(--text-color);
                 }
                 span{
                     height: 100%;
@@ -596,6 +640,13 @@ button{
                     height: 40px;
                     position: relative;
                     align-items: center;
+                    a{
+                        position: absolute;
+                        text-decoration: none;
+                        color: var(--text-color);
+                        width: 100%;
+                        height: 100%;
+                    }
                     h4{
                         font-size: 20px;
                         margin: 0;
@@ -728,6 +779,7 @@ button{
         height: 130px;
         display: flex;
         .ddayDiv{
+            position: relative;
             &:not(:first-child){
                 margin-left: 1%;
             }
@@ -770,6 +822,21 @@ button{
                     float: left;
                     border-top: 1px solid var(--border-color);
                     background: var(--button-color);
+                }
+            }
+            button{
+                width: 45px;
+                height: 25px;
+                font-size: 12px;
+                border-radius: 4px;
+                position: absolute;
+                top: 6.5%;
+                right: 3%;
+                opacity: 0;
+            }
+            &:hover{
+                button{
+                    opacity: 1;
                 }
             }
         }
@@ -915,13 +982,13 @@ button{
         }
       }
       #BMWbg{
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         background: rgba(0,0,0,0.3);
-        z-index: 2;
+        z-index: 10;
     }
       #BookMemoWindow{
         position: absolute;
@@ -1041,6 +1108,46 @@ button{
 
 //fixed end
 
+//Clock
+
+#Clock{
+    position: fixed;
+    bottom: 2%;
+    right: 1%;
+    border: 1px solid var(--border-color);
+    background: #fff;
+    padding: 6px 12px;
+    height: 40px;
+    line-height: 30px;
+    border-radius: 4px;
+    transition: 0.5s;
+    cursor: pointer;
+    &:hover{
+        box-shadow: 3px 3px 5px -4px;
+    }
+    h2{
+        margin: 0;
+        color: var(--text-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        .clockDot{
+            animation-name: clockDot;
+            animation-iteration-count: infinite;
+            animation-duration: 1s;
+            margin: 0 3px;
+            cursor: pointer;
+        }
+        .clockSec{
+            margin: 0 3px;
+            cursor: pointer;
+        }
+    }
+}
+
+//Clock end
+
 //join
 
 #frontBg{
@@ -1050,7 +1157,7 @@ button{
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.3);
-    z-index: 2;
+    z-index: 10;
 }
 #JoinWindow {
     position: fixed;
@@ -1218,7 +1325,7 @@ button{
         width: 100%;
         height: 100%;
         background: rgba(0,0,0,0.3);
-        z-index: 2;
+        z-index: 10;
     }
     #DdayAddWindow{
         position: absolute;
@@ -1230,7 +1337,7 @@ button{
         border: 1px solid var(--border-color);
         border-radius: 4px;
         background: #fff;
-        z-index: 3;
+        z-index: 20;
         overflow: hidden;
         transition: 0.5s;
         &:hover{
@@ -1287,3 +1394,432 @@ button{
 }
 
 //dday add end
+//realBM
+
+#reamBMbox{
+    width: 16%;
+    height: 63%;
+    position: absolute;
+    top: 31%;
+    overflow: hidden;
+    pointer-events : none;
+    #reamBMwindow{
+        pointer-events : auto;
+        background: #fff;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        transition: 0.5s ease-in-out;
+        left: 0;
+        ul{
+            width: 100%;
+            height: 100%;
+            color : var(--text-color);
+            li{
+                width: 100%;
+                height: 5%;
+                line-height: 30px;
+                text-align: left;
+                padding-left: 3%;
+                cursor: pointer;
+                border-bottom: 1px dotted var(--border-color);
+                &:first-child{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 0;
+                    height: 10%;
+                    text-align: center;
+                    font-size: 20px;
+                    line-height: 62px;
+                    background: var(--button-color);
+                    border-bottom: 1px solid var(--border-color);
+                    cursor: default;
+                    &:hover{
+                        background: var(--button-color);
+                    }
+                    svg{
+                        height: 100%;
+                        font-size: 25px;
+                        margin-right: 5px;
+                        path{
+                            height: 100%;
+                        }
+                    }
+                }
+                &:hover{
+                    background: var(--button-color);
+                }
+            }
+        }
+    }
+    #moreBM{
+        width: 100%;
+        height: 32px;
+        position: absolute;
+        bottom: 0px;
+        text-align: right;
+        border-top: 1px solid var(--border-color);
+        border-radius: 0 0 4px 4px;
+        background: var(--button-color);
+        svg{
+            font-size: 22px;
+            padding-top: 2px;
+            height: 29.41px;
+            color: var(--text-color);
+            margin-right: 4%;
+            cursor: pointer;
+            path{
+                height: 29.41px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+#moreBMbox{
+    width: 200px;
+    height: 802px;
+    position: absolute;
+    z-index: 1;
+    top: 8.5%;
+    left: 25%;
+    #moreBMWindow{
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        border-radius: 4px;
+        border: 1px solid var(--border-color);
+        transition: 0.2s ease-in-out;
+        ul{
+            width: 100%;
+            height: 100%;
+            li{
+                width: 100%;
+                height: 29.41px;
+                line-height: 29.41px;
+                padding-left: 3%;
+                border-bottom: 1px dotted var(--border-color);
+                cursor: pointer;
+                &:hover{
+                    background: var(--button-color);
+                }
+            }
+        }
+    }
+}
+
+
+//reamBM end
+
+//subpage
+.subindex{
+    display: flex;
+}
+
+.subLeft{
+    position: relative;
+    color: var(--text-color);
+    width: 30%;
+    padding-top: 30px;
+    box-shadow: 5px 0px 5px -4px;
+    border-left: 1px solid #ccc;
+    .subMyPage{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        .subImgSize{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 3px 3px 5px -4px;
+            img{
+                transition: 0.2s;
+            }
+            &:hover{
+                img{
+                    transform: scale(1.05);
+                }
+            }
+            margin-bottom: 10px;
+        }
+        p{
+            margin: 0;
+        }
+        .subName{
+            font-size: 28px;
+        }
+        .subEmail{
+            font-size: 14px;
+            color: #999;
+        }
+        padding-bottom: 30px;
+        border-bottom: 1px dotted var(--border-color);
+    }
+    .subMenu{
+        margin-top: 30px;
+        ul{
+            width: 100%;
+            li{
+                height: 50px;
+                line-height: 55px;
+                padding-left: 30px;
+                font-size: 30px;
+                margin-bottom: 20px;
+                p{
+                    cursor: pointer;
+                    width: 60%;
+                    height: 100%;
+                    transition: 0.2s ease-in-out;
+                    text-align: left;
+                    font-weight: normal;
+                    color: #aaa;
+                    &:hover{
+                        transform: translateX(3%);
+                        color: var(--text-color);
+                    }
+                }
+            }
+            .subSelect{
+                font-size: 37px;
+                p{
+                    color: var(--text-color);
+                    padding-left: 10px;
+                }
+            }
+        }
+    }
+}
+.subRight{
+    width: 70%;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-color);
+    h1{
+        width: 100%;
+        text-align: center;
+        padding-bottom: 30px;
+        color: var(--text-color);
+        font-size: 40px;
+    }
+    #BMmanager{
+        width: 100%;
+        min-height: 700px;
+        position: relative;
+        padding: 0 50px;
+        #BMAddBtn{
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            #BMAddInput{
+                margin-left: 20px;
+                padding: 10px 30px;
+                border-radius: 4px;
+                border: 1px solid var(--border-color);
+                transition: 0.2s;
+                p{
+                    margin: 0;
+                }
+                #BMinput{
+                    margin-right: 20px;
+                }
+                #BMinput2{
+                    width: 350px;
+                }
+            }
+            button{
+                border-radius: 6px;
+                height: 30px;
+            }
+            #submitBM{
+                position: absolute;
+                right: 5.1%;
+            }
+        }
+        ul{
+            margin: 0;
+            margin-top: 20px;
+            margin-bottom: 50px;
+            border-top: 1px solid var(--border-color);
+            li{
+                display: flex;
+                font-size: 20px;
+                height: 50px;
+                position: relative;
+                border-bottom: 1px dotted var(--border-color);
+                padding-left: 30px;
+                p{
+                    margin: 0;
+                    line-height: 55px;
+                }
+                svg{
+                    height: 100%;
+                    position: absolute;
+                    right: 3%;
+                    cursor: pointer;
+                    transition: 0.2s;
+                    path{
+                        cursor: pointer;
+                    }
+                    &:hover{
+                        transform: scale(1.05);
+                    }
+                }
+            }
+        }
+    }
+}
+//subpage end
+
+//normemo page
+#norListPage{
+    height: 100vh;
+}
+#norTitle{
+    width: 100%;
+    padding: 0 50px;
+    padding-right: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    color: var(--text-color);
+    font-size: 24px;
+    height: 50px;
+    li{
+        text-align: center;
+        height: 100%;
+        line-height: 50px;
+        &:nth-child(1){
+            width: 20%;
+        }
+        &:nth-child(2){
+            width: 65%;
+        }
+        &:nth-child(3){
+            width: 15%;
+        }
+    }
+    border-bottom: 1px solid var(--border-color);
+}
+#rightNorList{
+    width: 100%;
+    overflow-y: scroll;
+    height: 700px;
+    #norList{
+        width: 100%;
+        padding: 0 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+        color: var(--text-color);
+        font-size: 18px;
+        height: 50px;
+        &:hover{
+            background: var(--button-color);
+        }
+        li{
+            text-align: center;
+            height: 100%;
+            line-height: 50px;
+            &:nth-child(1){
+                width: 20%;
+            }
+            &:nth-child(2){
+                width: 65%;
+            }
+            &:nth-child(3){
+                width: 15%;
+            }
+        }
+        border-bottom: 1px dotted var(--border-color);
+    }
+}
+#addNorBtn{
+    position: absolute;
+    bottom: 4%;
+    right: 15%;
+    height: 35px;
+    border-radius: 6px;
+}
+
+//normemo page end
+
+//NMC
+
+#NMC{
+    width: 70%;
+    height: 100vh;
+    form{
+        width: 100%;
+        height: 100%;
+        padding-top: 100px;
+        .NMCInput{
+            display: flex;
+            flex-direction: column;
+            // justify-content: space-between;
+            align-items: center;
+            padding: 0 100px;
+            p{
+                width: 100%;
+                text-align: left;
+                height: 100%;
+                margin: 0;
+                margin-right: 10px;
+                padding-left: 45px;
+                margin-bottom: 5px;
+            }
+            input{
+                width: 700px;
+                border: 1px solid var(--border-color);
+                border-radius: 4px;
+                margin-bottom: 30px;
+            }
+            textarea{
+                resize: none;
+                width: 700px;
+                height: 400px;
+                outline: none;
+                padding-left: 10px;
+                border: 1px solid var(--border-color);
+                border-radius: 4px;
+                padding-top: 5px;
+            }
+        }
+        .NMCtitle{
+            padding-left: 100px;
+            font-size: 30px;
+            margin: 0;
+        }
+        .NMCmini{
+            padding-left: 100px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+        }
+        .NMCBtn{
+            margin-top: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            button{
+                border-radius: 6px;
+                height: 35px;
+                &:last-child{
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
+
+//NMC end

@@ -118,31 +118,31 @@ const FrontWindow = () => {
                             <table>
                                 <tr>
                                     <td>＊ ID : </td>
-                                    <td><input type="text" name='userid' value={createUser.userid} onChange={SignUpInput} placeholder='ID를 입력해주세요.' /></td>
+                                    <td><input type="text" name='userid' value={createUser.userid} onChange={SignUpInput} placeholder='ID를 입력해주세요.' spellcheck="false" autocomplete='off'/></td>
                                 </tr>
                                 <tr>
                                     <td>＊ 이름 : </td>
-                                    <td><input type="text" name='name' value={createUser.name} onChange={SignUpInput} placeholder='이름을 입력해주세요.' /></td>
+                                    <td><input type="text" name='name' value={createUser.name} onChange={SignUpInput} placeholder='이름을 입력해주세요.' spellcheck="false" autocomplete='off' /></td>
                                 </tr>
                                 <tr>
                                     <td>＊ 비밀번호 : </td>
-                                    <td><input type="text" name='pw' value={createUser.pw} onChange={SignUpInput} placeholder='비밀번호를 입력해주세요.' /></td>
+                                    <td><input type="text" name='pw' value={createUser.pw} onChange={SignUpInput} placeholder='비밀번호를 입력해주세요.' spellcheck="false" autocomplete='off'/></td>
                                 </tr>
                                 <tr>
                                     <td>＊ 비밀번호 확인 : </td>
-                                    <td><input type="text" name='pwch' value={createUser.pwch} onChange={SignUpInput} placeholder='비밀번호를 다시 입력해주세요.' /></td>
+                                    <td><input type="text" name='pwch' value={createUser.pwch} onChange={SignUpInput} placeholder='비밀번호를 다시 입력해주세요.' spellcheck="false" autocomplete='off'/></td>
                                 </tr>
                                 <tr>
                                     <td>연락처 : </td>
-                                    <td><input type="text" name='phone1' value={createUser.phone1} onChange={SignUpInput}/> - <input type="text" name='phone2' value={createUser.phone2} onChange={SignUpInput}/> - <input type="text" name='phone3' value={createUser.phone3} onChange={SignUpInput}/></td>
+                                    <td><input type="text" name='phone1' value={createUser.phone1} onChange={SignUpInput} spellcheck="false" autocomplete='off'/> - <input type="text" name='phone2' value={createUser.phone2} onChange={SignUpInput} spellcheck="false" autocomplete='off'/> - <input type="text" name='phone3' value={createUser.phone3} onChange={SignUpInput} spellcheck="false" autocomplete='off'/></td>
                                 </tr>
                                 <tr>
                                     <td>E-mail : </td>
-                                    <td><input type="text" name='email1' value={createUser.email1} onChange={SignUpInput}/> @ <input type="text" name='email2' value={createUser.email2} onChange={SignUpInput}/></td>
+                                    <td><input type="text" name='email1' value={createUser.email1} onChange={SignUpInput} spellcheck="false" autocomplete='off'/> @ <input type="text" name='email2' value={createUser.email2} onChange={SignUpInput} spellcheck="false" autocomplete='off'/></td>
                                 </tr>
                                 <tr>
                                     <td>주소 : </td>
-                                    <td><input type="text" name='addr1' value={createUser.addr1} onChange={SignUpInput}/> <button onClick={openPostCode} onChange={SignUpInput}>주소 선택</button></td>
+                                    <td><input type="text" name='addr1' value={createUser.addr1} onChange={SignUpInput} spellcheck="false" autocomplete='off'/> <button onClick={openPostCode} onChange={SignUpInput}>주소 선택</button></td>
                                     <div id="popupDom">
                                         {isPopupOpen && (
                                             <PopupDom>
@@ -153,7 +153,7 @@ const FrontWindow = () => {
                                 </tr>
                                 <tr>
                                     <td>상세 주소 :</td>
-                                    <td><input type="text" name='addr2' value={createUser.addr2} onChange={SignUpInput}/></td>
+                                    <td><input type="text" name='addr2' value={createUser.addr2} onChange={SignUpInput} spellcheck="false" autocomplete='off'/></td>
                                 </tr>
                                 <tr>
                                     <td>프로필 이미지 : </td>
@@ -181,8 +181,8 @@ const FrontWindow = () => {
                 <h2 id='loginTitle'>회원 로그인</h2>
                 <form id='loginForm' onSubmit={onSubmit}>
                     <div id='loginInputs'>
-                        <input name='userid' value={loginData.userid} onChange={onChange} placeholder='아이디' />
-                        <input name='pw' value={loginData.pw} onChange={onChange} placeholder='비밀번호' />
+                        <input name='userid' value={loginData.userid} onChange={onChange} placeholder='아이디' autocomplete='off' spellcheck="false"/>
+                        <input type="password" name='pw' value={loginData.pw} onChange={onChange} placeholder='비밀번호' autocomplete='off' spellcheck="false"/>
                     </div>
                     <div id='loginShadow'>
                         <button>로그인</button>
