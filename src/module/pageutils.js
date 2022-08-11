@@ -9,6 +9,7 @@ const TOGGLE_MORE_BM = "TOGGLE_MORE_BM";
 const BMADD_ON = "BMADD_ON";
 const BMADD_OFF = "BMADD_OFF";
 const CLOCK_TOGGLE = "CLOCK_TOGGLE";
+const TOGGLE_NDW = "TOGGLE_NDW";
 
 const initialState = {
     utils: {
@@ -20,6 +21,7 @@ const initialState = {
         toggleMoreBM : false,
         toggleBMADD : false,
         toggleCLOCK : false,
+        toggleNDW : false,
     },
 }
 
@@ -78,7 +80,11 @@ export const setClockOn = () => {
         type: CLOCK_TOGGLE,
     }
 }
-
+export const toggleNDW = () => {
+    return {
+        type: TOGGLE_NDW,
+    }
+}
 export default function utils(state = initialState, action) {
     switch (action.type) {
         case HEADER_ON:
@@ -167,6 +173,14 @@ export default function utils(state = initialState, action) {
                 utils: {
                     ...state.utils,
                     toggleCLOCK: !state.utils.toggleCLOCK,
+                }
+            }
+        case TOGGLE_NDW:
+            return {
+                ...state,
+                utils: {
+                    ...state.utils,
+                    toggleNDW: !state.utils.toggleNDW,
                 }
             }
         default:

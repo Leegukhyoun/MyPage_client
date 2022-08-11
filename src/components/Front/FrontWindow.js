@@ -29,6 +29,7 @@ const FrontWindow = () => {
     }
     const JWBtn = () => {
         dispatch(toggleJW());
+        dispatch(setImageUrl('no-image.png'));
     }
     const onSubmit = (e) => {
         e.preventDefault();
@@ -87,9 +88,17 @@ const FrontWindow = () => {
     const [ imageUrl, setImageUrl ] = useState(null);
 
     const onChangeImage = (e)=>{
-        const imgsrc = e.target.files[0].name;
-        setImageUrl(URL.createObjectURL(e.target.files[0]));
-        dispatch(setImg(imgsrc));
+        const { name } = e.target;
+        const imageFormData = new FormData();
+        console.log(name)
+        imageFormData.append(name,e.target.files[0]);
+        axios.post(`${API_URL}/image`, imageFormData, {
+            Headers: { 'content-type': 'multipart/form-data' },
+          }).then((response) => {
+            console.log({ response });
+            setImageUrl(response.data.img);
+            dispatch(setImg(response.data.img));
+          });
     }
 
     const onSubmitSign = () => {
@@ -110,7 +119,7 @@ const FrontWindow = () => {
             <div style={{ display: openJW ? 'block' : 'none' }}>
                 <div id='frontBg' onClick={JWBtn}></div>
                 <div id='JoinWindow'>
-                    <form action={`${API_URL}/image`} method="post" onSubmit={onSubmitSign} enctype="multipart/form-data">
+                    <form onSubmit={onSubmitSign} enctype="multipart/form-data">
                         <div id='JW'>
                             <div id='JWXcircle' onClick={JWBtn}><BsFillXCircleFill /></div>
                             <p id='readMe'>* 필수 입력</p>
@@ -161,7 +170,7 @@ const FrontWindow = () => {
                                         <input type="file" name='img' onChange={onChangeImage}  width="100px" height="100px"/>
                                         {imageUrl ?        
                                             (<div className='uploadImg'>
-                                                <img src={imageUrl} alt="" width="100px" height="100px" id='imgview'/>
+                                                <img src={`${API_URL}/upload/${imageUrl}`} alt="" width="100px" height="100px" id='imgview'/>
                                                 <button>이미지 선택</button>
                                             </div>)
                                             :

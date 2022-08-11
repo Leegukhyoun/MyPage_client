@@ -8,7 +8,6 @@ const NorRight = ({data}) => {
             <ul id='norTitle'>
                 <li>작성일</li>
                 <li>제목</li>
-                <li>작성자</li>
             </ul>
             <div id='rightNorList'>
             {data[1].map(info =>

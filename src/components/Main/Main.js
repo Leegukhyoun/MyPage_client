@@ -9,7 +9,7 @@ const Main = ({info, openBMW, onBMWOn, onBMWOff}) => {
         <div id='mainIndex'>
             <div id='maindivide' className='inner'>
                 <MainLeft info={info} openBMW={openBMW} onBMWOn={onBMWOn} onBMWOff={onBMWOff}/>
-                <MainRight pic={info[3]} nor={info[1]} dday={info[4]}/>
+                <MainRight pic={info[3]} nor={info[8]} dday={info[4]}/>
                 <MainFixed />
                 <MainClock />
             </div>

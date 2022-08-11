@@ -48,7 +48,6 @@ const MainRight = ({pic, nor, dday}) => {
                         <ul id='titleUl'>
                             <li>날짜</li>
                             <li>제목</li>
-                            <li>글쓴이</li>
                         </ul>
                         <ul id='boardUl'>
                             {nor.map(Data=>

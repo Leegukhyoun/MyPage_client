@@ -142,6 +142,10 @@ button{
     background: rgba(0,0,0,0.1);
     z-index: 10;
 }
+.pre{
+    font-family: 'GmarketSansMedium';
+    color: var(--text-color);
+}
 //reset end
 
 //front
@@ -560,9 +564,9 @@ button{
                         border-top: 1px solid #999;
                         h5{
                             font-size: 18px;
-                            width: 75%;
-                            padding-left: 20px;
+                            width: 100%;
                             margin: 0;
+                            text-align: center;
                         }
                         p{
                             width: 25%;
@@ -716,17 +720,14 @@ button{
                             width: 20%;
                         }
                         &:nth-child(2){
-                            width: 60%;
-                        }
-                        &:nth-child(3){
-                            width: 20%;
+                            width: 80%;
                         }
                     }
                 }
                 #boardUl{
                     width: 100%;
                     ul{
-                        height: 35px;
+                        height: 34px;
                         width: 100%;
                         display: flex;
                         justify-content: space-between;
@@ -746,17 +747,16 @@ button{
                                 font-size: 12px;
                             }
                             &:nth-child(2){
-                                width: 60%;
+                                width: 80%;
                                 font-size: 16px;
                                 span{
                                     width: 100%;
                                     cursor: pointer;
                                     margin-bottom: 0;
+                                    a{
+                                        color: var(--text-color);
+                                    }
                                 }
-                            }
-                            &:nth-child(3){
-                                width: 20%;
-                                font-size: 12px;
                             }
                             &:hover{
                                 color: var(--text-color);
@@ -1701,10 +1701,7 @@ button{
             width: 20%;
         }
         &:nth-child(2){
-            width: 65%;
-        }
-        &:nth-child(3){
-            width: 15%;
+            width: 80%;
         }
     }
     border-bottom: 1px solid var(--border-color);
@@ -1730,38 +1727,44 @@ button{
             text-align: center;
             height: 100%;
             line-height: 50px;
+            a{
+                color: var(--text-color);
+            }
             &:nth-child(1){
                 width: 20%;
             }
             &:nth-child(2){
-                width: 65%;
-            }
-            &:nth-child(3){
-                width: 15%;
+                width: 80%;
             }
         }
         border-bottom: 1px dotted var(--border-color);
     }
 }
-#addNorBtn{
+
+#rightNorList::-webkit-scrollbar {
+    display: none;
+}
+
+#addNorBtn {
     position: absolute;
     bottom: 4%;
     right: 15%;
     height: 35px;
     border-radius: 6px;
+    color: var(--text-color);
 }
 
 //normemo page end
 
 //NMC
 
-#NMC{
+.NMC{
     width: 70%;
     height: 100vh;
     form{
         width: 100%;
         height: 100%;
-        padding-top: 100px;
+        padding-top: 50px;
         .NMCInput{
             display: flex;
             flex-direction: column;
@@ -1792,6 +1795,7 @@ button{
                 border: 1px solid var(--border-color);
                 border-radius: 4px;
                 padding-top: 5px;
+                cursor: text;
             }
         }
         .NMCtitle{
@@ -1801,7 +1805,7 @@ button{
         }
         .NMCmini{
             padding-left: 100px;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px dotted var(--border-color);
             margin-bottom: 30px;
             padding-bottom: 10px;
         }
@@ -1819,7 +1823,116 @@ button{
                 }
             }
         }
+        .detailView{
+            width: 100%;
+            height: 550px;
+            scrollbar-width: none;
+            overflow-y: scroll;
+            padding-left: 100px;
+        }
+        .detailBtns{
+            padding-left: 100px;
+            padding-top: 20px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            a{
+                padding: 5.5px 16.343px;
+                border-radius: 4px;
+                border: 1px solid var(--border-color);
+                outline: none;
+                transition: 0.5s;
+                background: var(--button-color);
+                color: var(--text-color);
+                cursor: pointer;
+            
+                &:hover {
+                    background: var(--bg-color2);
+                }
+                }
+            button{
+                height: 35px;
+                border-radius: 4px;
+                &:nth-child(2){
+                    margin-left: 10px;
+                }
+                &:last-child{
+                    position: absolute;
+                    right: 0;
+                }
+            }
+        }
+        .detailView::-webkit-scrollbar{
+            display: none;
+        }
     }
 }
 
 //NMC end
+
+//NDW
+#NDWbg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.3);
+}
+#NDW{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 300px;
+    background: #fff;
+    color: var(--text-color);
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    transition: 0.5s;
+    &:hover{
+        box-shadow: 3px 3px 5px -4px;
+    }
+    h1, h2{
+        color: var(--text-color);
+        margin: 0;
+    }
+    #NDWWindow{
+        width: 100%;
+        height: 75%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        p{
+            margin: 0;
+            color: #bbb;
+        }
+        h1{
+            text-align: center;
+            width: 100%;
+            height: 30%;
+            font-size: 40px;
+            line-height: 96px;
+            color: palevioletred;
+            margin-top: 30px;
+        }
+        h2{
+            font-size: 30px;
+            margin-top: 30px;
+        }
+    }
+    #NDWBtns{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 160px;
+        padding-top: 10px;
+        button{
+            height: 35px;
+            border-radius: 4px;
+        }
+    }
+}
+
+//NDW end
