@@ -7,8 +7,8 @@ const NorMemoView = ({Data}) => {
     return (
         <li>
             <ul>
-                <li>{date}</li>
                 <li><span><Link to={`/normemodetail/${Data.id}`}>{Data.title}</Link></span></li>
+                <li>{date}</li>
             </ul>
         </li>
     );

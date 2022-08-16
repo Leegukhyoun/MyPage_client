@@ -23,6 +23,16 @@ const GET_NOR = "GET_NOR";
 const GET_NOR_ERROR = "GET_NOR_ERROR";
 const GET_NOR_SUCCESS = "GET_NOR_SUCCESS";
 
+const SET_PICMEM_INPUT = "SET_PICMEM_INPUT";
+const SET_PICMEM_RESET = "SET_PICMEM_RESET";
+const SET_PICMEM_USERID = "SET_PICMEM_USERID";
+const SET_IMG = "SET_IMG";
+const EDIT_PICMEM_INPUT = "EDIT_PICMEM_INPUT";
+
+const GET_PIC = "GET_PIC";
+const GET_PIC_ERROR = "GET_PIC_ERROR";
+const GET_PIC_SUCCESS = "GET_PIC_SUCCESS";
+
 const initialState = {
     emer: {
         emertext: "",
@@ -42,9 +52,23 @@ const initialState = {
         userid : "",
         title : "",
         norDesc : "",
-        nowDate : moment(),
+        nowDate : moment().format("YYYY-MM-DD HH:mm:ss"),
+        search : "",
     },
     getnor: {
+        loading: false,
+        data: null,
+        error: null,
+    },
+    picmem : {
+        userid : "",
+        pictitle : "",
+        picDesc : "",
+        picImg : "",
+        nowDate : moment().format("YYYY-MM-DD HH:mm:ss"),
+        search : "",
+    },
+    getpic: {
         loading: false,
         data: null,
         error: null,
@@ -143,6 +167,40 @@ export const setNorMemUserid = (userid) => {
     }
 }
 
+export const setPicMemInput = (e) => {
+    const { name, value } = e.target;
+    return {
+        type: SET_PICMEM_INPUT,
+        name,
+        value
+    }
+}
+export const setPicMemReset = () => {
+    return {
+        type: SET_PICMEM_RESET,
+    }
+}
+export const setPicMemUserid = (userid) => {
+    return {
+        type: SET_PICMEM_USERID,
+        userid
+    }
+}
+export const setImg = (img) => {
+    return {
+        type: SET_IMG,
+        img
+    }
+}
+export const editPicMemInput = (pictitle, picDesc, picImg) => {
+    return {
+        type: EDIT_PICMEM_INPUT,
+        pictitle : pictitle,
+        picDesc : picDesc,
+        picImg : picImg
+    }
+}
+
 export const addEmer = () => async (dispatch, getState) => {
     const formdata = getState().memoIndex.emer;
     console.log(formdata);
@@ -203,7 +261,7 @@ export const getNorMemo = (id) => async dispatch => {
     dispatch({type: GET_NOR});
     //eslint-disable-next-line
     try {
-        const response = await axios.get(`http://localhost:3001${id}`);
+        const response = await axios.get(`${API_URL}${id}`);
         const getnor = response.data;
         dispatch({type:GET_NOR_SUCCESS, getnor})
     }
@@ -222,6 +280,44 @@ export const editNorMemo = (id) => async (dispatch, getState) => {
     }
     catch(e) {
         dispatch({ type: SET_NORMEM_RESET})
+    }
+}
+
+export const searchNor = (title) => async dispatch => {
+    //eslint-disable-next-line
+    try {
+        const response = await axios.get(`${API_URL}/searchnor/${title}`);
+        const getnor = response.data;
+        dispatch({type:GET_NOR_SUCCESS, getnor})
+    }
+    catch(e){
+        dispatch({type:GET_NOR_ERROR, error : e})
+    }
+}
+
+
+export const addPicmemAdd = () => async (dispatch, getState) => {
+    const formdata = getState().memoIndex.picmem;
+    try{
+        //eslint-disable-next-line
+        const response = await axios.post(`${API_URL}/picmemadd`, formdata)
+        dispatch({ type: SET_PICMEM_RESET})
+    }
+    catch(e) {
+        dispatch({ type: SET_PICMEM_RESET})
+    }
+}
+
+export const getPicMemo = (id) => async dispatch => {
+    dispatch({type: GET_PIC});
+    //eslint-disable-next-line
+    try {
+        const response = await axios.get(`${API_URL}${id}`);
+        const getpic = response.data;
+        dispatch({type:GET_PIC_SUCCESS, getpic})
+    }
+    catch(e){
+        dispatch({type:GET_PIC_ERROR, error : e})
     }
 }
 
@@ -328,7 +424,8 @@ export default function memo(state = initialState, action) {
                     userid : "",
                     title : "",
                     norDesc : "",
-                    nowDate : moment().format('YYYY-MM-DD'),
+                    nowDate : moment().format("YYYY-MM-DD HH:mm:ss"),
+                    search : "",
                 }
             }
         case SET_NORMEM_USERID:
@@ -370,6 +467,70 @@ export default function memo(state = initialState, action) {
             return {
                 ...state,
                 getnor: {
+                    loading: false,
+                    data: null,
+                    error: action.error
+                }
+            }
+        case SET_PICMEM_INPUT:
+            return {
+                ...state,
+                picmem: {
+                    ...state.picmem,
+                    [action.name]: action.value
+                }
+            }
+        case SET_PICMEM_RESET:
+            return {
+                ...state,
+                picmem: {
+                    ...state.picmem,
+                    userid : "",
+                    pictitle : "",
+                    picDesc : "",
+                    picImg : "",
+                    nowDate : moment().format("YYYY-MM-DD HH:mm:ss"),
+                    search : "",
+                }
+            }
+        case SET_PICMEM_USERID:
+            return {
+                ...state,
+                picmem: {
+                    ...state.picmem,
+                    userid: action.userid
+                }
+            }
+        case SET_IMG:
+            return {
+                ...state,
+                picmem: {
+                    ...state.picmem,
+                    picImg: action.img
+                }
+            }
+        case GET_PIC:
+            return {
+                ...state,
+                getpic: {
+                    loading: true,
+                    data: null,
+                    error: null,
+                }
+            }
+        case GET_PIC_SUCCESS:
+            return {
+                ...state,
+                getpic: {
+                    loading: false,
+                    data: action.getpic,
+                    error: null,
+                }
+            }
+        case GET_PIC_ERROR:
+            return {
+                ...state,
+                getpic: {
                     loading: false,
                     data: null,
                     error: action.error

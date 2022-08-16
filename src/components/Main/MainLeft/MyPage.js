@@ -6,12 +6,14 @@ import { setLogout, goToLogin } from '../../../module/loginIndex';
 import { removeCookie } from '../../../util/cookie';
 import { headerOFF } from '../../../module/pageutils';
 import { API_URL } from '../../../config/apiurl';
-import { toggleBM, setToggleMoreBM } from '../../../module/pageutils';
+import { toggleBM, setToggleMoreBM, fixedOff } from '../../../module/pageutils';
+import { searchNor, setNorMemInput } from '../../../module/memoIndex';
 
 const MyPage = ({info}) => {
     const navigate = useNavigate();
     const {isLogin} = useSelector(state=>state.loginIndex.login);
     const {toggleMoreBM} = useSelector(state=>state.pageutils.utils);
+    const { search } = useSelector(state=>state.memoIndex.normem);
     const dispatch = useDispatch();
     const BMtoggle = () => {
         if(toggleMoreBM){
@@ -30,6 +32,7 @@ const MyPage = ({info}) => {
         alert('로그아웃 되었습니다.');
         dispatch(setLogout());
         dispatch(headerOFF());
+        dispatch(fixedOff());
         dispatch(goToLogin(navigate));
     }
     useEffect(()=>{
@@ -38,6 +41,25 @@ const MyPage = ({info}) => {
 
     const user = info[0];
     
+    const myInfo = (e) => {
+        e.preventDefault();
+        navigate("/myinfo");
+    }
+
+    const onClick = (e) => {
+        e.preventDefault();
+        dispatch(searchNor(search));
+        navigate(`/searchnor/${search}`);
+    }
+    const onChange = (e) => {
+        dispatch(setNorMemInput(e));
+    }
+    const onKeyPress = (e) => {
+        console.log(e);
+        if(e.key == 'Enter'){
+            onClick(e);
+        }
+    }
     return (
         <div id='myPage'>
             <div id='status'>
@@ -51,11 +73,11 @@ const MyPage = ({info}) => {
                 <button onClick={logoutBtn}>로그아웃</button>
             </div>
             <div id='norSearch'>
-                <input type="text" placeholder='일반메모 검색' autocomplete='off' spellcheck="false"/>
-                <div id='norSearchIcon'><FaSearch /></div>
+                <input name='search' type="text" placeholder='일반메모 검색' onChange={onChange} value={search} onKeyPress={onKeyPress} autocomplete='off' spellcheck="false"/>
+                <div id='norSearchIcon' onClick={onClick}><FaSearch /></div>
             </div>
             <div id='botBtn'>
-                <button>내 정보</button>
+                <button onClick={myInfo}>내 정보</button>
                 <button onClick={BMtoggle}>북마크</button>
             </div>
         </div>

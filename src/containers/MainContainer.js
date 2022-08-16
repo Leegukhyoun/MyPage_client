@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import MainIndex from '../components/Main/MainIndex';
 import { API_URL } from '../config/apiurl';
 import { pointUser } from '../module/loginIndex';
-import { headerOn, onBMW, closeBMW } from '../module/pageutils';
+import { setNorMemReset } from '../module/memoIndex';
+import { headerOn, onBMW, closeBMW, fixedOn } from '../module/pageutils';
 import { getCookie } from '../util/cookie';
-
 
 const MainContainer = () => {
     const { data, loading, error } = useSelector(state=>state.loginIndex.user);
@@ -21,6 +21,8 @@ const MainContainer = () => {
     },[dispatch])
     useEffect(()=>{
         dispatch(headerOn());
+        dispatch(fixedOn());
+        dispatch(setNorMemReset());
     },[data])
     const onBMWOn = () => {
         dispatch(onBMW());

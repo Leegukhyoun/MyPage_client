@@ -10,6 +10,12 @@ const BMADD_ON = "BMADD_ON";
 const BMADD_OFF = "BMADD_OFF";
 const CLOCK_TOGGLE = "CLOCK_TOGGLE";
 const TOGGLE_NDW = "TOGGLE_NDW";
+const FIXED_ON = "FIXED_ON";
+const FIXED_OFF = "FIXED_OFF";
+const TOGGLE_MIW = "TOGGLE_MIW";
+const TOGGLE_NOR_ALL = "TOGGLE_NOR_ALL";
+const TOGGLE_PIC_ALL = "TOGGLE_PIC_ALL";
+const TOGGLE_PDW = "TOGGLE_PDW";
 
 const initialState = {
     utils: {
@@ -22,6 +28,11 @@ const initialState = {
         toggleBMADD : false,
         toggleCLOCK : false,
         toggleNDW : false,
+        toggleFIXED : false,
+        toggleMIW : false,
+        toggleNorAll : false,
+        togglePicAll : false,
+        togglePDW : false,
     },
 }
 
@@ -85,6 +96,37 @@ export const toggleNDW = () => {
         type: TOGGLE_NDW,
     }
 }
+export const fixedOn = () => {
+    return {
+        type: FIXED_ON,
+    }
+}
+export const fixedOff = () => {
+    return {
+        type: FIXED_OFF,
+    }
+}
+export const toggleMIWFn = () => {
+    return {
+        type: TOGGLE_MIW,
+    }
+}
+export const toggleNorAll = () => {
+    return {
+        type: TOGGLE_NOR_ALL,
+    }
+}
+export const togglePicAll = () => {
+    return {
+        type: TOGGLE_PIC_ALL,
+    }
+}
+export const togglePDW = () => {
+    return {
+        type: TOGGLE_PDW,
+    }
+}
+
 export default function utils(state = initialState, action) {
     switch (action.type) {
         case HEADER_ON:
@@ -181,6 +223,54 @@ export default function utils(state = initialState, action) {
                 utils: {
                     ...state.utils,
                     toggleNDW: !state.utils.toggleNDW,
+                }
+            }
+        case FIXED_ON:
+            return {
+                ...state,
+                utils: {
+                    ...state.utils,
+                    toggleFIXED: true,
+                }
+            }
+        case FIXED_OFF:
+            return {
+                ...state,
+                utils: {
+                    ...state.utils,
+                    toggleFIXED: false,
+                }
+            }
+        case TOGGLE_MIW:
+            return {
+                ...state,
+                utils: {
+                    ...state.utils,
+                    toggleMIW: !state.utils.toggleMIW,
+                }
+            }
+        case TOGGLE_NOR_ALL:
+            return {
+                ...state,
+                utils: {
+                    ...state.utils,
+                    toggleNorAll: !state.utils.toggleNorAll,
+                }
+            }
+        case TOGGLE_PIC_ALL:
+            return {
+                ...state,
+                utils: {
+                    ...state.utils,
+                    togglePicAll: !state.utils.togglePicAll,
+                }
+            }
+        case TOGGLE_PDW:
+            return {
+                ...state,
+                utils: {
+                    ...state.utils,
+                    togglePDW: !state.utils.togglePDW,
                 }
             }
         default:

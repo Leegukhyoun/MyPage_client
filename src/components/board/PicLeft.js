@@ -2,7 +2,7 @@ import React from 'react';
 import { API_URL } from '../../config/apiurl';
 import { Link } from 'react-router-dom';
 
-const NorLeft = ({user}) => {
+const PicLeft = ({user}) => {
     return (
         <div className='subLeft'>
             <div className='subMyPage'>
@@ -17,12 +17,12 @@ const NorLeft = ({user}) => {
                     <Link to="/myinfo"><li><p>내 정보</p></li></Link>
                     <Link to="/bookmark"><li><p>북마크 관리</p></li></Link>
                     <Link to="/callnumber"><li><p>전화번호부</p></li></Link>
-                    <li className='subSelect'><p>일반 메모</p></li>
-                    <Link to="/picmemo"><li><p>사진 메모</p></li></Link>
+                    <Link to="/normemo"><li><p>일반 메모</p></li></Link>
+                    <li className='subSelect'><p>사진 메모</p></li>
                 </ul>
             </div>
         </div>
     );
 };
 
-export default NorLeft;
+export default PicLeft;

@@ -14,11 +14,11 @@ const SubLeft = ({user}) => {
             </div>
             <div className='subMenu'>
                 <ul>
-                    <li><p>내 정보</p></li>
+                    <Link to="/myinfo"><li><p>내 정보</p></li></Link>
                     <li className='subSelect'><p>북마크 관리</p></li>
-                    <li><p>전화번호부</p></li>
+                    <Link to="/callnumber"><li><p>전화번호부</p></li></Link>
                     <Link to="/normemo"><li><p>일반 메모</p></li></Link>
-                    <li><p>사진 메모</p></li>
+                    <Link to="/picmemo"><li><p>사진 메모</p></li></Link>
                 </ul>
             </div>
         </div>

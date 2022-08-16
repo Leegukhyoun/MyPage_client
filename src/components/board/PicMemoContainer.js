@@ -1,20 +1,18 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import NorMemo from './NorMemo';
 import { pointUser } from '../../module/loginIndex';
 import { headerOn } from '../../module/pageutils';
 import { getCookie } from '../../util/cookie';
 import { API_URL } from '../../config/apiurl';
-import { setNorMemReset } from '../../module/memoIndex';
+import PicMemo from './PicMemo';
 
-const NorMemoContainer = () => {
+const PicMemoContainer = () => {
     const { data, loading, error } = useSelector(state=>state.loginIndex.user);
     const userid = getCookie('userid');
     const dispatch = useDispatch();
     useEffect(()=>{
         if(userid){
             dispatch(pointUser());
-            dispatch(setNorMemReset());
         }else{
             <div id='notCookie'><p>쿠키 없음.</p></div>
         }
@@ -29,8 +27,8 @@ const NorMemoContainer = () => {
     if(error) return <div>에러 발생</div>
     if(!data) return null;
     return (
-        <NorMemo info={data[0]} data={data}/>
+        <PicMemo info={data[0]} data={data}/>
     );
 };
 
-export default NorMemoContainer;
+export default PicMemoContainer;

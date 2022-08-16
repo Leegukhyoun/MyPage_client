@@ -7,8 +7,8 @@ const NorRightList = ({info}) => {
     
     return (
         <ul id='norList'>
-            <li>{Date}</li>
             <li><Link to={`/normemodetail/${info.id}`}>{info.title}</Link></li>
+            <li>{Date}</li>
         </ul>
     );
 };

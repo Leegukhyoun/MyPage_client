@@ -145,6 +145,7 @@ button{
 .pre{
     font-family: 'GmarketSansMedium';
     color: var(--text-color);
+    margin: 0;
 }
 //reset end
 
@@ -379,13 +380,11 @@ button{
                 }
             }
             #botBtn{
+                margin-top: 25px;
                 display: flex;
                 justify-content: space-between;
                 padding: 0 40px;
                 width: 100%;
-                position: absolute;
-                left: 0;
-                bottom: 13%;
                 button{
                     color: #3b4975;
                     height: 40px;
@@ -395,7 +394,7 @@ button{
                 }
             }
             #norSearch{
-                margin-top: 20px;
+                margin-top: 25px;
                 width: 100%;
                 display: flex;
                 justify-content: center;
@@ -409,8 +408,13 @@ button{
                     height: 100%;
                     padding-left: 5px;
                     font-size: 20px;
+                    cursor: pointer;
                     svg{
                         height: 100%;
+                        cursor: pointer;
+                        path{
+                            cursor: pointer;
+                        }
                     }
                 }
             }
@@ -481,11 +485,17 @@ button{
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                width: 70px;
                 height: 100%;
                 transition: 0.1s ease-in-out;
                 cursor: pointer;
+                p{
+                    cursor: pointer;
+                }
                 a{
                     color: var(--text-color);
+                    width: 100%;
+                    display: flex;
                 }
                 &:hover{
                     transform: scale(1.05);
@@ -666,14 +676,18 @@ button{
                         }
                     }
                     .boardmore{
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
                         height: 100%;
+                        width: 70px;
                         cursor: pointer;
                         position: absolute;
                         right: 2%;
                         transition: 0.1s ease-in-out;
+                        a{
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: flex-end;
+                            align-items: center;
+                        }
                         &:hover{
                             transform: scale(1.05);
                         }
@@ -717,10 +731,10 @@ button{
                         line-height: 35px;
                         text-align: center;
                         &:nth-child(1){
-                            width: 20%;
+                            width: 80%;
                         }
                         &:nth-child(2){
-                            width: 80%;
+                            width: 20%;
                         }
                     }
                 }
@@ -743,12 +757,10 @@ button{
                             line-height: 37px;
                             color: #666;
                             &:nth-child(1){
-                                width: 20%;
-                                font-size: 12px;
-                            }
-                            &:nth-child(2){
-                                width: 80%;
+                                width: 70%;
                                 font-size: 16px;
+                                text-align: left;
+                                padding-left: 20px;
                                 span{
                                     width: 100%;
                                     cursor: pointer;
@@ -757,6 +769,10 @@ button{
                                         color: var(--text-color);
                                     }
                                 }
+                            }
+                            &:nth-child(2){
+                                width: 20%;
+                                font-size: 12px;
                             }
                             &:hover{
                                 color: var(--text-color);
@@ -1698,10 +1714,12 @@ button{
         height: 100%;
         line-height: 50px;
         &:nth-child(1){
-            width: 20%;
+            width: 80%;
+            padding-left: 10px;
         }
         &:nth-child(2){
-            width: 80%;
+            width: 20%;
+            padding-left: 30px;
         }
     }
     border-bottom: 1px solid var(--border-color);
@@ -1709,7 +1727,7 @@ button{
 #rightNorList{
     width: 100%;
     overflow-y: scroll;
-    height: 700px;
+    height: 650px;
     #norList{
         width: 100%;
         padding: 0 50px;
@@ -1731,10 +1749,12 @@ button{
                 color: var(--text-color);
             }
             &:nth-child(1){
-                width: 20%;
+                width: 80%;
+                text-align: left;
+                padding-left: 30px;
             }
             &:nth-child(2){
-                width: 80%;
+                width: 20%;
             }
         }
         border-bottom: 1px dotted var(--border-color);
@@ -1747,13 +1767,31 @@ button{
 
 #addNorBtn {
     position: absolute;
-    bottom: 4%;
+    bottom: 6%;
     right: 15%;
     height: 35px;
     border-radius: 6px;
     color: var(--text-color);
 }
-
+#norSearchBar{
+    position: absolute;
+    bottom: 5%;
+    left: 40%;
+    width: 265px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    input{
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+    }
+    button{
+        width: 60px;
+        height: 35px;
+        border-radius: 4px;
+    }
+}
 //normemo page end
 
 //NMC
@@ -1765,6 +1803,24 @@ button{
         width: 100%;
         height: 100%;
         padding-top: 50px;
+        #datailImg{
+            padding: 0 100px;
+            width: 100%;
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // margin-bottom: 20px;
+            border-bottom: 1px dotted var(--border-color);
+            padding-bottom: 30px;
+            img{
+                width: auto;
+                height: 100%;
+                border-radius: 4px;
+                border: 1px solid var(--border-color);
+                transition: 0.5s;
+            }
+        }
         .NMCInput{
             display: flex;
             flex-direction: column;
@@ -1799,12 +1855,13 @@ button{
             }
         }
         .NMCtitle{
-            padding-left: 100px;
+            text-align: center;
             font-size: 30px;
             margin: 0;
+            
         }
         .NMCmini{
-            padding-left: 100px;
+            text-align: center;
             border-bottom: 1px dotted var(--border-color);
             margin-bottom: 30px;
             padding-bottom: 10px;
@@ -1829,6 +1886,12 @@ button{
             scrollbar-width: none;
             overflow-y: scroll;
             padding-left: 100px;
+            border-bottom: 1px dotted var(--border-color);
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        #imgText{
+            height: 100px;
         }
         .detailBtns{
             padding-left: 100px;
@@ -1872,7 +1935,7 @@ button{
 
 //NDW
 #NDWbg{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
@@ -1916,6 +1979,7 @@ button{
             line-height: 96px;
             color: palevioletred;
             margin-top: 30px;
+            overflow: hidden;
         }
         h2{
             font-size: 30px;
@@ -1936,3 +2000,448 @@ button{
 }
 
 //NDW end
+
+//Myinfo
+.infoCard{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+#myInfoMenu{
+    width: 100%;
+    height: 700px;
+    padding: 30px;
+    padding-top: 0;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .MIW{
+        >p{
+            position: absolute;
+            height: 9%;
+            margin: 0;
+            font-size: 12px;
+            color: #ccc;
+            padding-left: 3px;
+        }
+        padding: 10px;
+        border: 1px solid var(--border-color);
+        background: #fff;
+        border-radius: 4px;
+        width: 80%;
+        height: 40%;
+        &:first-child{
+            margin-bottom: 20px;
+        }
+        .infoCard{
+            #imgInfo{
+                width: 25%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            #nametag{
+                width: 65%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                div{
+                    width: 85%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    font-size: 16px;
+                    padding-left: 10px;
+                    border-bottom: 1px solid var(--border-color);
+                    &:first-child{
+                        border-top: 1px solid var(--border-color);
+                    }
+                    .infoTitle{
+                        margin: 0;
+                        width: 20%;
+                        font-size: 12px;
+                    }
+                }
+            }
+            #MIWBtn{
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: flex-end;
+                height: 100%;
+                width: 15%;
+                button{
+                    height: 35px;
+                    border-radius: 4px;
+                    &:nth-child(1){
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+#outerCard{
+    width: 80%;
+    height: 40%;
+}
+#imgCover{
+    width: 120px;
+    height: 120px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+#MIWBg{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.3);
+}
+#delMIW{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 300px;
+    background: #fff;
+    color: var(--text-color);
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    transition: 0.5s;
+    &:hover{
+        box-shadow: 3px 3px 5px -4px;
+    }
+    h2{
+        color: var(--text-color);
+        margin: 0;
+    }
+}
+#delMIWpage{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        p{
+            margin: 0;
+            margin-bottom: 10px;
+        }
+        h2{
+            text-align: center;
+            width: 100%;
+            height: 30%;
+            font-size: 40px;
+            line-height: 96px;
+            color: palevioletred;
+            margin-top: 30px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        button{
+            height: 35px;
+            border-radius: 4px;
+            margin-top: 20px;
+            &:last-child{
+                margin-left: 20px;
+            }
+        }
+}
+#MIWUL{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    li{
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &:first-child{
+            border-right: 1px dotted var(--border-color);
+        }
+        p{
+            font-size: 20px;
+        }
+        h6{
+            font-size: 40px;
+        }
+        button{
+            height: 35px;
+            border-radius: 4px;
+        }
+    }
+}
+
+//Myinfo end
+
+//search
+
+#searchTitle{
+    width: 100%;
+    padding: 0 50px;
+    padding-right: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    color: var(--text-color);
+    font-size: 24px;
+    height: 50px;
+    li{
+        text-align: center;
+        height: 100%;
+        line-height: 50px;
+        &:nth-child(1){
+            width: 80%;
+            padding-left: 10px;
+        }
+        &:nth-child(2){
+            width: 20%;
+            padding-left: 30px;
+        }
+    }
+    border-bottom: 1px solid var(--border-color);
+}
+#searchList{
+    width: 100%;
+    overflow-y: scroll;
+    height: 500px;
+    #norList{
+        width: 100%;
+        padding: 0 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+        color: var(--text-color);
+        font-size: 18px;
+        height: 50px;
+        &:hover{
+            background: var(--button-color);
+        }
+        li{
+            text-align: center;
+            height: 100%;
+            line-height: 50px;
+            a{
+                color: var(--text-color);
+            }
+            &:nth-child(1){
+                width: 80%;
+                text-align: left;
+                padding-left: 30px;
+            }
+            &:nth-child(2){
+                width: 20%;
+            }
+        }
+        border-bottom: 1px dotted var(--border-color);
+    }
+}
+#searchList::-webkit-scrollbar {
+    display: none;
+}
+
+//search end
+
+//alldelpage
+
+.AlldelBg{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.3);
+}
+.AlldelWindow{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 300px;
+    background: #fff;
+    color: var(--text-color);
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    transition: 0.5s;
+    &:hover{
+        box-shadow: 3px 3px 5px -4px;
+    }
+    h2{
+        color: var(--text-color);
+        margin: 0;
+    }
+}
+.AlldelPage{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        p{
+            margin: 0;
+            margin-bottom: 10px;
+        }
+        h2{
+            text-align: center;
+            width: 100%;
+            height: 30%;
+            font-size: 40px;
+            line-height: 96px;
+            color: palevioletred;
+            margin-top: 30px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        button{
+            height: 35px;
+            border-radius: 4px;
+            margin-top: 20px;
+            &:last-child{
+                margin-left: 20px;
+            }
+        }
+}
+
+//alldelpage
+
+//piclist
+
+#picListPage{
+    height: 100vh;
+    #picTitle{
+        width: 100%;
+        padding: 0 50px;
+        padding-right: 70px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+        color: var(--text-color);
+        font-size: 24px;
+        height: 50px;
+        li{
+            text-align: center;
+            height: 100%;
+            line-height: 50px;
+            &:nth-child(1){
+                width: 20%;
+            }
+            &:nth-child(2){
+                width: 60%;
+            }
+            &:nth-child(3){
+                width: 20%;
+            }
+        }
+        border-bottom: 1px solid var(--border-color);
+    }
+    #rightPicList{
+        width: 100%;
+        overflow-y: scroll;
+        height: 650px;
+        #picList{
+            width: 100%;
+            padding: 0 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+            color: var(--text-color);
+            font-size: 18px;
+            height: 150px;
+            &:hover{
+                background: var(--button-color);
+            }
+            li{
+                text-align: center;
+                height: 100%;
+                line-height: 150px;
+                a{
+                    color: var(--text-color);
+                }
+                &:nth-child(1){
+                    width: 20%;
+                    padding: 5px;
+                    line-height: 0;
+                    img{
+                        border-radius: 4px;
+                        border: 1px solid var(--border-color);
+                        cursor: pointer;
+                    }
+                    
+                }
+                &:nth-child(2){
+                    width: 60%;
+                    cursor: pointer;
+                }
+                &:nth-child(3){
+                    width: 20%;
+                }
+            }
+            border-bottom: 1px dotted var(--border-color);
+        }
+    }
+}
+#rightPicList::-webkit-scrollbar {
+    display: none;
+}
+#addPicBtn {
+    position: absolute;
+    bottom: 6%;
+    right: 15%;
+    height: 35px;
+    border-radius: 6px;
+    color: var(--text-color);
+}
+#picSearchBar{
+    position: absolute;
+    bottom: 5%;
+    left: 40%;
+    width: 265px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    input{
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+    }
+    button{
+        width: 60px;
+        height: 35px;
+        border-radius: 4px;
+    }
+}
+#picText{
+    textarea{
+        height: 200px;
+    }
+}
+.picImage{
+    #picImg{
+        height: 200px;
+        width: 200px;
+        opacity: 0;
+        position: relative;
+        z-index: 3;
+    }
+}
+.picUpload{
+    position: absolute;
+}
+//piclist

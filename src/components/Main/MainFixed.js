@@ -3,24 +3,29 @@ import { FaRegStickyNote } from 'react-icons/fa';
 import { AiOutlinePicture } from 'react-icons/ai';
 import { BsCalculator } from 'react-icons/bs';
 import { MdOutlinePhoneIphone } from 'react-icons/md';
-
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux/es/exports';
 
 const MainFixed = () => {
-
+    const { toggleFIXED } = useSelector(state=>state.pageutils.utils);
 
 
     return (
-        <div id='fixed'>
+        <div id='fixed' style={{display : toggleFIXED ? '' : 'none'}}>
             <div className='fixedIcon'>
                 <div className='iconBox'>
-                    <FaRegStickyNote/>
-                    <p className='iconName'>일반 메모</p>
+                    <Link to="/normemo">
+                        <FaRegStickyNote />
+                        <p className='iconName'>일반 메모</p>
+                    </Link>
                 </div>
             </div>
             <div className='fixedIcon'>        
                 <div className='iconBox'>
-                    <AiOutlinePicture/>
-                    <p className='iconName'>사진 메모</p>
+                    <Link to="/picmemo">
+                        <AiOutlinePicture />
+                        <p className='iconName'>사진 메모</p>
+                    </Link>
                 </div>
             </div>
             <div className='fixedIcon'>   

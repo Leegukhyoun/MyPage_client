@@ -45,7 +45,7 @@ const FrontWindow = () => {
                     //현재시간 객체 생성
                     let expires = new Date();
                     //60분 더한 값으로 변경
-                    expires.setMinutes(expires.getMinutes()+120);
+                    expires.setMinutes(expires.getMinutes()+300);
                     setCookie('userid', `${userid}`, {path : `/`, expires});
                     setCookie('pw', `${pw}`, {path : `/`, expires});
                     dispatch(setLogin());

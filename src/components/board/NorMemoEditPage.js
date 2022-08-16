@@ -39,6 +39,7 @@ const NorMemoEditPage = () => {
     }
     const cancle = (e) => {
         e.preventDefault();
+        dispatch(setNorMemReset());
         navigate(`/normemodetail/${data[0].id}`);
     }
     if(loading) return <div id='loading'><img src={`${API_URL}/upload/3305803.png`} alt=''/></div>

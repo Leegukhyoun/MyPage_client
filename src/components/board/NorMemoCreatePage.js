@@ -9,6 +9,7 @@ const NorMemoCreatePage = ({setInput, setReset, setUserid, addNor, normem}) => {
     const setTitle = (e) => {
         setInput(e);
         setUserid(userid);
+        console.log(normem);
     }
     const setCancle = (e) => {
         e.preventDefault();

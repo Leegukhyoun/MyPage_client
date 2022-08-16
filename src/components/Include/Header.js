@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { setLogout, goToLogin } from '../../module/loginIndex';
 import { removeCookie } from '../../util/cookie';
-import { headerOFF } from '../../module/pageutils';
+import { headerOFF, fixedOff } from '../../module/pageutils';
 
 const Header = () => {
     const navigate = useNavigate();
@@ -16,6 +16,7 @@ const Header = () => {
         alert('로그아웃 되었습니다.');
         dispatch(setLogout());
         dispatch(headerOFF());
+        dispatch(fixedOff());
         dispatch(goToLogin(navigate));
     }
     useEffect(()=>{
@@ -29,7 +30,6 @@ const Header = () => {
                     <ul>
                         <Link to="/bookmark"><li>북마크 관리</li></Link>
                         <li>전화번호부</li>
-                        <li>가계부</li>
                         <li onClick={logoutBtn}>로그아웃</li>
                     </ul>
                 </div>
