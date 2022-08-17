@@ -9,7 +9,6 @@ const NorMemoCreatePage = ({setInput, setReset, setUserid, addNor, normem}) => {
     const setTitle = (e) => {
         setInput(e);
         setUserid(userid);
-        console.log(normem);
     }
     const setCancle = (e) => {
         e.preventDefault();
@@ -18,8 +17,12 @@ const NorMemoCreatePage = ({setInput, setReset, setUserid, addNor, normem}) => {
     }
     const setNorMemo = (e) => {
         e.preventDefault();
-        addNor();
-        navigate("/normemo");
+        if(!normem.title){
+            alert('제목을 입력해주세요.');
+        } else {
+            addNor();
+            navigate("/normemo");
+        }
     }
 
     return (

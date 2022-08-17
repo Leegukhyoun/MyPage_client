@@ -8,7 +8,7 @@ const PicRightList = ({info}) => {
     return (
         <>
         <Link to={`/picmemodetail/${info.id}`}>
-        <ul id='picList'>
+        <ul id='picList' className='searchPicList'>
             <li><img src={`${API_URL}/upload/${info.picImg}`} alt='' /></li>
             <li>{info.pictitle}</li>
             <li>{Date}</li>

@@ -5,14 +5,77 @@
     font-style: normal;
 }
 @font-face {
+    font-family: 'Happiness-Sans-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Happiness-Sans-Title';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
     font-family: 'twayair';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twayair.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
+    font-family: 'BMHANNAPro';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'GmarketSansMedium';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'CookieRunOTF-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/CookieRunOTF-Bold00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'ONE-Mobile-POP';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {font-family: "Azonix"; src: url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.eot"); src: url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.woff") format("woff"), url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.svg#Azonix") format("svg"); }
+@font-face {
+    font-family: 'Y_Spotlight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/Y_Spotlight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'EarlyFontDiary';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/EarlyFontDiary.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'KOTRAHOPE';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GangwonEduPowerExtraBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -36,6 +99,11 @@
     --bg-color2: #728fe6;
     --bg-color3: rgba(175, 238, 238, 0.2);
     --text-color: #3b4975;
+    --postname : 'twayair';
+    --title : 'Cafe24Ssurround';
+    --happy : 'Happiness-Sans-Regular';
+    --happyBold : 'Happiness-Sans-Title';
+    --Gmarket : 'GmarketSansMedium';
 }
 
 //reset
@@ -75,6 +143,7 @@ input{
     outline: none;
     font-size: 14px;
     cursor: text;
+    font-family: var(--happy);
 }
 
 button{
@@ -87,6 +156,7 @@ button{
     background: var(--button-color);
     color: var(--text-color);
     cursor: pointer;
+    font-family: 'Y_Spotlight';
     &:hover{
         background: var(--bg-color2);
     }
@@ -143,7 +213,8 @@ button{
     z-index: 10;
 }
 .pre{
-    font-family: 'GmarketSansMedium';
+    font-family: var(--happy);
+    font-size: 17px;
     color: var(--text-color);
     margin: 0;
 }
@@ -237,14 +308,17 @@ button{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-top: 12px;
         #title{
+            cursor: pointer;
+            margin: 0;
+            font-family: 'BMHANNAPro';
             a{
                 color: var(--text-color);
             }
         }
         ul{
             display: flex;
+            margin: 0;
             li{
                 margin-left: 20px;
                 color: #999;
@@ -468,17 +542,20 @@ button{
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                font-family: var(--title);
                 p{
                     margin: 0;
                     height: 100%;
                     line-height: 40px;
                     margin: 0 10px;
+                    color: var(--text-color);
                 }
                 svg{
                     height: 100%;
                     font-size: 26px;
                     position: relative;
                     top: -3px;
+                    color: var(--text-color);
                 }
             }
             .boardmore{
@@ -567,7 +644,7 @@ button{
                     &:nth-child(2){
                         width: 100%;
                         height: 20%;
-                        // line-height: 60px;
+                        font-family: var(--happy);
                         display: flex;
                         justify-content: space-between;
                         align-items: center;
@@ -577,6 +654,7 @@ button{
                             width: 100%;
                             margin: 0;
                             text-align: center;
+                            color: var(--text-color);
                         }
                         p{
                             width: 25%;
@@ -666,6 +744,8 @@ button{
                         margin: 0;
                         height: 100%;
                         line-height: 40px;
+                        font-family: var(--title);
+                        color: var(--text-color);
                     }
                     > span{
                         font-size: 26px;
@@ -673,6 +753,7 @@ button{
                         height: 100%;
                         svg{
                             height: 100%;
+                            color: var(--text-color);
                         }
                     }
                     .boardmore{
@@ -755,12 +836,14 @@ button{
                         li{
                             text-align: center;
                             line-height: 37px;
+                            font-family: var(--happy);
                             color: #666;
                             &:nth-child(1){
                                 width: 70%;
                                 font-size: 16px;
                                 text-align: left;
                                 padding-left: 20px;
+                                line-height: 33px;
                                 span{
                                     width: 100%;
                                     cursor: pointer;
@@ -794,6 +877,7 @@ button{
         width: 100%;
         height: 130px;
         display: flex;
+        color: var(--text-color);
         .ddayDiv{
             position: relative;
             &:not(:first-child){
@@ -811,6 +895,7 @@ button{
             div{
                 height: 33.3333%;
                 line-height: 43px;
+                font-family: var(--postname);
                 &:nth-child(1){
                     width: 20%;
                     float: left;
@@ -898,6 +983,7 @@ button{
                 p{
                     margin: 0;
                     margin-left: 10px;
+                    font-family: var(--title);
                 }
             }
             li{
@@ -921,6 +1007,8 @@ button{
                     display: flex;
                     align-items: center;
                     padding-left: 20px;
+                    font-family: var(--postname);
+                    overflow: hidden;
                     p{
                         margin: 0%;
                     }
@@ -1441,6 +1529,7 @@ button{
                 padding-left: 3%;
                 cursor: pointer;
                 border-bottom: 1px dotted var(--border-color);
+                font-family: var(--postname);
                 &:first-child{
                     display: flex;
                     justify-content: center;
@@ -1452,6 +1541,7 @@ button{
                     line-height: 62px;
                     background: var(--button-color);
                     border-bottom: 1px solid var(--border-color);
+                    font-family: var(--title);
                     cursor: default;
                     &:hover{
                         background: var(--button-color);
@@ -1568,6 +1658,7 @@ button{
         }
         .subName{
             font-size: 28px;
+            font-family: var(--title);
         }
         .subEmail{
             font-size: 14px;
@@ -1593,6 +1684,7 @@ button{
                     transition: 0.2s ease-in-out;
                     text-align: left;
                     font-weight: normal;
+                    font-family: var(--happyBold);
                     color: #aaa;
                     &:hover{
                         transform: translateX(3%);
@@ -1619,6 +1711,7 @@ button{
     color: var(--text-color);
     h1{
         width: 100%;
+        font-family: var(--title);
         text-align: center;
         padding-bottom: 30px;
         color: var(--text-color);
@@ -1671,9 +1764,14 @@ button{
                 position: relative;
                 border-bottom: 1px dotted var(--border-color);
                 padding-left: 30px;
+                font-family: var(--happy);
+                &:hover{
+                    background: var(--button-color);
+                }
                 p{
                     margin: 0;
-                    line-height: 55px;
+                    line-height: 50px;
+                    height: 50px;
                 }
                 svg{
                     height: 100%;
@@ -1745,6 +1843,7 @@ button{
             text-align: center;
             height: 100%;
             line-height: 50px;
+            font-family: var(--happy);
             a{
                 color: var(--text-color);
             }
@@ -1858,6 +1957,8 @@ button{
             text-align: center;
             font-size: 30px;
             margin: 0;
+            font-family: var(--title);
+            color: var(--text-color);
             
         }
         .NMCmini{
@@ -1865,6 +1966,7 @@ button{
             border-bottom: 1px dotted var(--border-color);
             margin-bottom: 30px;
             padding-bottom: 10px;
+            font-family: var(--postname);
         }
         .NMCBtn{
             margin-top: 30px;
@@ -2078,9 +2180,6 @@ button{
                 button{
                     height: 35px;
                     border-radius: 4px;
-                    &:nth-child(1){
-                        margin-bottom: 10px;
-                    }
                 }
             }
         }
@@ -2213,6 +2312,32 @@ button{
         }
     }
     border-bottom: 1px solid var(--border-color);
+}
+.picsearch{
+    width: 100%;
+    padding: 0 50px;
+    padding-right: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    color: var(--text-color);
+    font-size: 24px;
+    height: 50px;
+    li{
+        text-align: center;
+        height: 100%;
+        line-height: 50px;
+        &:nth-child(1){
+            width: 20%;
+        }
+        &:nth-child(2){
+            width: 60%;
+        }
+        &:nth-child(3){
+            width: 20%;
+        }
+    }
 }
 #searchList{
     width: 100%;
@@ -2371,6 +2496,7 @@ button{
                 text-align: center;
                 height: 100%;
                 line-height: 150px;
+                font-family: var(--happy);
                 a{
                     color: var(--text-color);
                 }
@@ -2443,5 +2569,46 @@ button{
 }
 .picUpload{
     position: absolute;
+}
+.searchPicList{
+        width: 100%;
+        padding: 0 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+        color: var(--text-color);
+        font-size: 18px;
+        height: 150px;
+        &:hover{
+            background: var(--button-color);
+        }
+        li{
+            text-align: center;
+            height: 100%;
+            line-height: 150px;
+            a{
+                color: var(--text-color);
+            }
+            &:nth-child(1){
+                width: 20%;
+                padding: 5px;
+                line-height: 0;
+                img{
+                    border-radius: 4px;
+                    border: 1px solid var(--border-color);
+                    cursor: pointer;
+                }
+                
+            }
+            &:nth-child(2){
+                width: 60%;
+                cursor: pointer;
+            }
+            &:nth-child(3){
+                width: 20%;
+            }
+        }
+        border-bottom: 1px dotted var(--border-color);
 }
 //piclist

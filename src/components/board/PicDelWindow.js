@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 
 const PicDelWindow = ({data, PMdelete, PDWBtn}) => {
     const { togglePDW } = useSelector(state=>state.pageutils.utils);
-    console.log(data);
     return (
         <>
         <div style={{display : togglePDW ? 'block' : 'none'}}>

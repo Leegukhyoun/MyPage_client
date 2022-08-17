@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { setLogout, goToLogin } from '../../../module/loginIndex';
-import { removeCookie } from '../../../util/cookie';
+import { getCookie, removeCookie } from '../../../util/cookie';
 import { headerOFF } from '../../../module/pageutils';
 import { API_URL } from '../../../config/apiurl';
 import { toggleBM, setToggleMoreBM, fixedOff } from '../../../module/pageutils';
@@ -14,6 +14,7 @@ const MyPage = ({info}) => {
     const {isLogin} = useSelector(state=>state.loginIndex.login);
     const {toggleMoreBM} = useSelector(state=>state.pageutils.utils);
     const { search } = useSelector(state=>state.memoIndex.normem);
+    const userid = getCookie('userid');
     const dispatch = useDispatch();
     const BMtoggle = () => {
         if(toggleMoreBM){
@@ -49,7 +50,7 @@ const MyPage = ({info}) => {
     const onClick = (e) => {
         e.preventDefault();
         dispatch(searchNor(search));
-        navigate(`/searchnor/${search}`);
+        navigate(`/searchnor/${userid}/${search}`);
     }
     const onChange = (e) => {
         dispatch(setNorMemInput(e));

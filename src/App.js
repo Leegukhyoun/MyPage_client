@@ -15,6 +15,8 @@ import MyInfo from './components/board/MyInfo';
 import PicMemoContainer from './components/board/PicMemoContainer';
 import PicMemoCreate from './components/board/PicMemoCreate';
 import PicMemoDetail from './components/board/PicMemoDetail';
+import PicMemoEdit from './components/board/PicMemoEdit';
+import SearchPicMemo from './components/board/SearchPicMemo';
 
 function App() {
   return (
@@ -29,11 +31,13 @@ function App() {
         <Route path="/normemocreate" element={<NorMemoCreate/>} />
         <Route path="/normemodetail/:id" element={<NorMemoDetail/>} />
         <Route path="/normemoedit/:id" element={<NorMemoEdit/>} />
-        <Route path="/searchnor/:title" element={<SearchNorMemo/>} />
+        <Route path="/searchnor/:userid/:title" element={<SearchNorMemo/>} />
         <Route path="/myinfo" element={<MyInfo/>} />
         <Route path="/picmemo" element={<PicMemoContainer/>} />
         <Route path="/picmemocreate" element={<PicMemoCreate/>} />
         <Route path="/picmemodetail/:id" element={<PicMemoDetail/>} />
+        <Route path="/picmemoedit/:id" element={<PicMemoEdit/>} />
+        <Route path="/searchpic/:userid/:pictitle" element={<SearchPicMemo/>} />
       </Routes>
       <Footer />
     </div>

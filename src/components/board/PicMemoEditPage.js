@@ -1,66 +1,90 @@
-import React, {useEffect} from 'react';
-import { useSelector, useDispatch } from 'react-redux/es/exports';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { headerOn } from '../../module/pageutils';
-import { getCookie } from '../../util/cookie';
-import { getNorMemo } from '../../module/memoIndex';
 import { API_URL } from '../../config/apiurl';
+import { editPicMemInput, editPicMemo, getPicMemo, setImg, setPicMemInput, setPicMemReset } from '../../module/memoIndex';
+import { getCookie } from '../../util/cookie';
 
 const PicMemoEditPage = () => {
     const { data, loading, error } = useSelector(state=>state.memoIndex.getpic);
+    const memo = useSelector(state=>state.memoIndex.picmem);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const userid = getCookie('userid');
     const id = useLocation();
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+    const [ imageUrl, setImageUrl ] = useState(null);
     useEffect(()=>{
         if(userid){
-            dispatch(getNorMemo(id.pathname));
-            const title = data[0].title;
-            const norDesc = data[0].norDesc;
-            dispatch(editNorMemInput(title, norDesc));
+            dispatch(getPicMemo(id.pathname));
+            const pictitle = data[0].pictitle;
+            const picDesc = data[0].picDesc;
+            const picImg = data[0].picImg;
+            dispatch(editPicMemInput(pictitle, picDesc, picImg));
         }else{
             <div id='notCookie'><p>쿠키 없음.</p></div>
         }
     },[dispatch])
-    useEffect(()=>{
-        dispatch(headerOn());
-    },[data])
-
+    
+    const onChangeImage = (e)=>{
+        const { name } = e.target;
+        const imageFormData = new FormData();
+        imageFormData.append(name,e.target.files[0]);
+        axios.post(`${API_URL}/image`, imageFormData, {
+            Headers: { 'content-type': 'multipart/form-data' },
+          }).then((response) => {
+            console.log({ response });
+            setImageUrl(response.data.img);
+            dispatch(setImg(response.data.img));
+          });
+    }
     if(loading) return <div id='loading'><img src={`${API_URL}/upload/3305803.png`} alt=''/></div>
     if(error) return <div>에러 발생</div>
     if(!data) return null;
-
-
+    const onSubmit = (e) => {
+        e.preventDefault();
+        dispatch(editPicMemo(id.pathname));
+        dispatch(setPicMemReset());
+        navigate(`/picmemodetail/${data[0].id}`);
+    }
+    const onChange = (e) => {
+        dispatch(setPicMemInput(e));
+    }
+    const cancle = (e) => {
+        e.preventDefault();
+        dispatch(setPicMemReset());
+        navigate(`/picmemodetail/${data[0].id}`);
+    }
     return (
         <div className='NMC'>
-        <form onSubmit={setPicMemo} enctype="multipart/form-data">
-            <p className='NMCtitle'>사진 메모 작성</p>
-            <p className='NMCmini'>기록 하고싶은 사진을 업로드 해주세요.</p> 
-            <div className='NMCInput picImage'>
-                <input type='file' name='img' id='picImg' onChange={onChangeImage}></input>
-                {imageUrl ?
-                    (<div className='picUpload'>
-                        <img src={`${API_URL}/upload/${imageUrl}`} alt="" id='imgview' style={{width : 200 + 'px', height : 200 + 'px', border : '1px solid var(--border-color)', borderRadius : 4 + 'px'}} />
-                    </div>)
-                    :
-                    (<div className='picUpload'>
-                        <img src={`${API_URL}/upload/no-image.png`} alt='' style={{width : 200 + 'px', height : 200 + 'px', border : '1px solid var(--border-color)', borderRadius : 4 + 'px'}} />
-                    </div>)}
-            </div>
-            <div className='NMCInput'>
-                <p>제목 : </p>    
-                <input type="text" name='pictitle' value={picmem.pictitle} onChange={setTitle} spellcheck="false" autocomplete='off'/>
-            </div>
-            <div className='NMCInput' id='picText'>
-                <p>내용 : </p>    
-                <textarea name='picDesc' value={picmem.picDesc} onChange={setInput} spellcheck="false" autocomplete='off'></textarea>
-            </div>
-            <div className='NMCBtn'>
-                <button type='onSubmit'>수정</button>
-                <button onClick={setCancle}>취소</button>
-            </div>
-        </form>
-    </div>
+            <form enctype="multipart/form-data" onSubmit={onSubmit}>
+                <p className='NMCtitle'>사진 메모 수정</p>
+                <p className='NMCmini'>수정을 완료하고 확인을 눌러주세요.</p> 
+                <div className='NMCInput picImage'>
+                    <input type='file' name='img' id='picImg' onChange={onChangeImage}></input>
+                    {imageUrl ?
+                        (<div className='picUpload'>
+                            <img src={`${API_URL}/upload/${imageUrl}`} alt="" id='imgview' style={{width : 200 + 'px', height : 200 + 'px', border : '1px solid var(--border-color)', borderRadius : 4 + 'px'}} />
+                        </div>)
+                        :
+                        (<div className='picUpload'>
+                            <img src={`${API_URL}/upload/${data[0].picImg}`} alt='' style={{width : 200 + 'px', height : 200 + 'px', border : '1px solid var(--border-color)', borderRadius : 4 + 'px'}} />
+                        </div>)}
+                </div>
+                <div className='NMCInput'>
+                    <p>제목 : </p>    
+                    <input type="text" name='pictitle' onChange={onChange} spellcheck="false" autocomplete='off' defaultValue={data[0].pictitle}/>
+                </div>
+                <div className='NMCInput' id='picText'>
+                    <p>내용 : </p>    
+                    <textarea name='picDesc' onChange={onChange} spellcheck="false" autocomplete='off' defaultValue={data[0].picDesc}></textarea>
+                </div>
+                <div className='NMCBtn'>
+                    <button type='onSubmit'>작성</button>
+                    <button onClick={cancle}>취소</button>
+                </div>
+            </form>
+        </div>
     );
 };
 

@@ -22,9 +22,13 @@ const DdayAddWindow = () => {
     }
     const addDdayMemo = (e) => {
         e.preventDefault();
-        dispatch(addDday());
-        DAWBtn();
-        dispatch(pointUser());
+        if(!data.datetext){
+            DAWBtn();
+        } else {
+            dispatch(addDday());
+            DAWBtn();
+            dispatch(pointUser());
+        }
     }
     return (
         <div id='DdayAdd' style={{ display: openDAW ? 'block' : 'none' }}>

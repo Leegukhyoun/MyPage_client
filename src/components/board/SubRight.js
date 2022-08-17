@@ -16,7 +16,7 @@ const SubRight = ({info, toggleBMADD, BMAddBtn, BMADD, setBMAddInput, setBMAddRe
     const addBMBtn = (e) => {
         e.preventDefault();
         if(BMADD.name === '' && BMADD.url === ''){
-            return ;
+            alert('등록할 정보를 모두 입력해주세요.')
         }else{
             addBM();
             setBMAddReset();

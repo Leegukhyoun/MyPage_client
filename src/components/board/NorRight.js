@@ -4,17 +4,22 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { searchNor, setNorMemInput } from '../../module/memoIndex';
 import { useNavigate } from 'react-router-dom';
+import { getCookie } from '../../util/cookie';
 
 
 const NorRight = ({data}) => {
     const { search } = useSelector(state=>state.memoIndex.normem);
-
+    const userid = getCookie('userid');
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const onClick = (e) => {
         e.preventDefault();
+       if(!search){
+        alert('검색어를 입력해주세요.')
+       } else {
         dispatch(searchNor(search));
-        navigate(`/searchnor/${search}`);
+        navigate(`/searchnor/${userid}/${search}`);
+       }
     }
     const onChange = (e) => {
         dispatch(setNorMemInput(e));

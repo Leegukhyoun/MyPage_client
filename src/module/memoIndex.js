@@ -1,6 +1,7 @@
 import axios from "axios";
 import { API_URL } from '../config/apiurl';    
 import moment from "moment";  
+import { getCookie } from "../util/cookie";
 
 const SET_EMER_INPUT = "SET_EMER_INPUT";        //오면 이 글부터 봐라
 const SET_EMER_RESET = "SET_EMER_RESET";        //월요일에 노말 글쓰기 만들고있었고
@@ -284,9 +285,10 @@ export const editNorMemo = (id) => async (dispatch, getState) => {
 }
 
 export const searchNor = (title) => async dispatch => {
+    const userid = getCookie('userid');
     //eslint-disable-next-line
     try {
-        const response = await axios.get(`${API_URL}/searchnor/${title}`);
+        const response = await axios.get(`${API_URL}/searchnor/${userid}/${title}`);
         const getnor = response.data;
         dispatch({type:GET_NOR_SUCCESS, getnor})
     }
@@ -313,6 +315,30 @@ export const getPicMemo = (id) => async dispatch => {
     //eslint-disable-next-line
     try {
         const response = await axios.get(`${API_URL}${id}`);
+        const getpic = response.data;
+        dispatch({type:GET_PIC_SUCCESS, getpic})
+    }
+    catch(e){
+        dispatch({type:GET_PIC_ERROR, error : e})
+    }
+}
+export const editPicMemo = (id) => async (dispatch, getState) => {
+    const formdata = getState().memoIndex.picmem;
+    try{
+        //eslint-disable-next-line
+        const response = await axios.put(`${API_URL}${id}`, formdata)
+        dispatch({ type: SET_PICMEM_RESET})
+    }
+    catch(e) {
+        dispatch({ type: SET_PICMEM_RESET})
+    }
+}
+
+export const searchPic = (pictitle) => async dispatch => {
+    const userid = getCookie('userid');
+    //eslint-disable-next-line
+    try {
+        const response = await axios.get(`${API_URL}/searchpic/${userid}/${pictitle}`);
         const getpic = response.data;
         dispatch({type:GET_PIC_SUCCESS, getpic})
     }
@@ -534,6 +560,16 @@ export default function memo(state = initialState, action) {
                     loading: false,
                     data: null,
                     error: action.error
+                }
+            }
+        case EDIT_PICMEM_INPUT:
+            return {
+                ...state,
+                picmem: {
+                    ...state.picmem,
+                    pictitle: action.pictitle,
+                    picDesc: action.picDesc,
+                    picImg : action.picImg
                 }
             }
         default:

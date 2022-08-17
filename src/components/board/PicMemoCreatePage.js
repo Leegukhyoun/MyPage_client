@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getCookie } from '../../util/cookie';
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
@@ -10,11 +10,14 @@ const PicMemoCreatePage = ({setInput, setReset, setUserid, addPic, picmem}) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const userid = getCookie('userid');
+    const [ imageUrl, setImageUrl ] = useState(null);
 
+    useEffect(()=>{
+        setReset();
+    },[])
     const setTitle = (e) => {
         setInput(e);
         setUserid(userid);
-        console.log(picmem);
     }
     const setCancle = (e) => {
         e.preventDefault();
@@ -23,11 +26,15 @@ const PicMemoCreatePage = ({setInput, setReset, setUserid, addPic, picmem}) => {
     }
     const setPicMemo = (e) => {
         e.preventDefault();
-        addPic();
-        navigate("/picmemo");
+        if(imageUrl){
+            addPic();
+            navigate("/picmemo");
+        } else {
+            alert('사진을 등록해주세요.');
+        }
     }
 
-    const [ imageUrl, setImageUrl ] = useState(null);
+   
 
     const onChangeImage = (e)=>{
         const { name } = e.target;
@@ -39,6 +46,7 @@ const PicMemoCreatePage = ({setInput, setReset, setUserid, addPic, picmem}) => {
             console.log({ response });
             setImageUrl(response.data.img);
             dispatch(setImg(response.data.img));
+            setUserid(userid);
           });
     }
 

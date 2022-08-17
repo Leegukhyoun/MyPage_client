@@ -19,9 +19,13 @@ const BookMemoWindow = ({openBMW, onBMWOff}) => {
     }
     const addEmerMemo = (e) => {
         e.preventDefault();
-        dispatch(addEmer());
-        XClick();
-        dispatch(pointUser());
+        if(!emer.emertext){
+            XClick();
+        } else {
+            dispatch(addEmer());
+            XClick();
+            dispatch(pointUser());
+        }
     }
     
     return (
