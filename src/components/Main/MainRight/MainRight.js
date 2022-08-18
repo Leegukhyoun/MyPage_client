@@ -41,7 +41,7 @@ const MainRight = ({pic, nor, dday}) => {
                         <div id='boardtitle'>
                             <span><MdOutlineEventNote/></span>
                             <h4>
-                                일반 메모 게시판
+                                일반 메모
                             </h4>      
                             <div className='boardmore'>
                                 <Link to="/normemo">

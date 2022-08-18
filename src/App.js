@@ -17,6 +17,7 @@ import PicMemoCreate from './components/board/PicMemoCreate';
 import PicMemoDetail from './components/board/PicMemoDetail';
 import PicMemoEdit from './components/board/PicMemoEdit';
 import SearchPicMemo from './components/board/SearchPicMemo';
+import PhoneMemoContainer from './components/board/PhoneMemoContainer';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route path="/picmemodetail/:id" element={<PicMemoDetail/>} />
         <Route path="/picmemoedit/:id" element={<PicMemoEdit/>} />
         <Route path="/searchpic/:userid/:pictitle" element={<SearchPicMemo/>} />
+        <Route path="/callnumber" element={<PhoneMemoContainer/>} />
       </Routes>
       <Footer />
     </div>

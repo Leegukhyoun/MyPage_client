@@ -29,7 +29,7 @@ const Header = () => {
                     <Link to="/mainindex"><h1 id='title'>My Diary</h1></Link>
                     <ul>
                         <Link to="/bookmark"><li>북마크 관리</li></Link>
-                        <li>전화번호부</li>
+                        <Link to="/callnumber"><li>전화번호부</li></Link>
                         <li onClick={logoutBtn}>로그아웃</li>
                     </ul>
                 </div>

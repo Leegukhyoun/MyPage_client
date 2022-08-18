@@ -13,6 +13,7 @@ const contentStyle = {
 
 const FrontDoor = () => (
   <>
+  <div id='slider'>
   <Carousel effect="fade" autoplay dots={false}>
     <div>
       <img src={`${API_URL}/upload/i16272991965.png`} alt='' />
@@ -27,6 +28,7 @@ const FrontDoor = () => (
       <img src={`${API_URL}/upload/i16272991965.png`} alt='' />
     </div>
   </Carousel>
+  </div>
   <FrontWindow />
   </>
 );

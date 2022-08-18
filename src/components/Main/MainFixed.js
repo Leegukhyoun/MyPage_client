@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaRegStickyNote } from 'react-icons/fa';
 import { AiOutlinePicture } from 'react-icons/ai';
-import { BsCalculator } from 'react-icons/bs';
+import { AiOutlineTags } from 'react-icons/ai';
 import { MdOutlinePhoneIphone } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux/es/exports';
@@ -30,14 +30,18 @@ const MainFixed = () => {
             </div>
             <div className='fixedIcon'>   
                 <div className='iconBox'>
-                    <BsCalculator/>
-                    <p className='iconName'>계산기</p>
+                    <Link to="/bookmark">
+                        <AiOutlineTags />
+                        <p className='iconName'>북마크</p>
+                    </Link>
                 </div>
             </div>
             <div className='fixedIcon'>
                 <div className='iconBox'>
-                    <MdOutlinePhoneIphone/>
-                    <p className='iconName'>전화번호부</p>
+                    <Link to="/callnumber">
+                        <MdOutlinePhoneIphone />
+                        <p className='iconName'>전화번호부</p>
+                    </Link>
                 </div>
             </div>
         </div>

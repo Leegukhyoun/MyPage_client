@@ -115,7 +115,7 @@ const FrontWindow = () => {
         }
     }
     return (
-        <div>
+        <>
             <div style={{ display: openJW ? 'block' : 'none' }}>
                 <div id='frontBg' onClick={JWBtn}></div>
                 <div id='JoinWindow'>
@@ -202,7 +202,7 @@ const FrontWindow = () => {
                     <p>비밀번호 찾기</p>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

@@ -16,6 +16,8 @@ const TOGGLE_MIW = "TOGGLE_MIW";
 const TOGGLE_NOR_ALL = "TOGGLE_NOR_ALL";
 const TOGGLE_PIC_ALL = "TOGGLE_PIC_ALL";
 const TOGGLE_PDW = "TOGGLE_PDW";
+const PNADD_ON = "PNADD_ON";
+const PNADD_OFF = "PNADD_OFF";
 
 const initialState = {
     utils: {
@@ -33,6 +35,7 @@ const initialState = {
         toggleNorAll : false,
         togglePicAll : false,
         togglePDW : false,
+        togglePN : false,
     },
 }
 
@@ -124,6 +127,16 @@ export const togglePicAll = () => {
 export const togglePDW = () => {
     return {
         type: TOGGLE_PDW,
+    }
+}
+export const setOnPNADD = () => {
+    return {
+        type: PNADD_ON,
+    }
+}
+export const setOffPNADD = () => {
+    return {
+        type: PNADD_OFF,
     }
 }
 
@@ -271,6 +284,22 @@ export default function utils(state = initialState, action) {
                 utils: {
                     ...state.utils,
                     togglePDW: !state.utils.togglePDW,
+                }
+            }
+        case PNADD_ON:
+            return {
+                ...state,
+                utils: {
+                    ...state.utils,
+                    togglePNADD: true,
+                }
+            }
+        case PNADD_OFF:
+            return {
+                ...state,
+                utils: {
+                    ...state.utils,
+                    togglePNADD: false,
                 }
             }
         default:

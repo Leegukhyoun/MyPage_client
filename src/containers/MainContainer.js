@@ -4,7 +4,7 @@ import MainIndex from '../components/Main/MainIndex';
 import { API_URL } from '../config/apiurl';
 import { pointUser } from '../module/loginIndex';
 import { setNorMemReset } from '../module/memoIndex';
-import { headerOn, onBMW, closeBMW, fixedOn } from '../module/pageutils';
+import { headerOn, onBMW, closeBMW, fixedOn, fixedOff } from '../module/pageutils';
 import { getCookie } from '../util/cookie';
 
 const MainContainer = () => {
@@ -23,6 +23,9 @@ const MainContainer = () => {
         dispatch(headerOn());
         dispatch(fixedOn());
         dispatch(setNorMemReset());
+        return () => {
+            dispatch(fixedOff());
+        }
     },[data])
     const onBMWOn = () => {
         dispatch(onBMW());

@@ -34,6 +34,10 @@ const GET_PIC = "GET_PIC";
 const GET_PIC_ERROR = "GET_PIC_ERROR";
 const GET_PIC_SUCCESS = "GET_PIC_SUCCESS";
 
+const SET_PNADD_INPUT = "SET_PNADD_INPUT";
+const SET_PNADD_RESET = "SET_PNADD_RESET";
+const SET_PNADD_USERID = "SET_PNADD_USERID";
+
 const initialState = {
     emer: {
         emertext: "",
@@ -73,6 +77,14 @@ const initialState = {
         loading: false,
         data: null,
         error: null,
+    },
+    pnadd : {
+        userid : "",
+        name : "",
+        phone1 : "",
+        phone2 : "",
+        phone3 : "",
+        text : "",
     },
 }
 
@@ -199,6 +211,26 @@ export const editPicMemInput = (pictitle, picDesc, picImg) => {
         pictitle : pictitle,
         picDesc : picDesc,
         picImg : picImg
+    }
+}
+
+export const setPNAddInput = (e) => {
+    const { name, value } = e.target;
+    return {
+        type: SET_PNADD_INPUT,
+        name,
+        value
+    }
+}
+export const setPNAddReset = () => {
+    return {
+        type: SET_PNADD_RESET,
+    }
+}
+export const setPNAddUserid = (userid) => {
+    return {
+        type: SET_PNADD_USERID,
+        userid
     }
 }
 
@@ -344,6 +376,18 @@ export const searchPic = (pictitle) => async dispatch => {
     }
     catch(e){
         dispatch({type:GET_PIC_ERROR, error : e})
+    }
+}
+
+export const addPnAdd = () => async (dispatch, getState) => {
+    const formdata = getState().memoIndex.pnadd;
+    try{
+        //eslint-disable-next-line
+        const response = await axios.post(`${API_URL}/pnadd`, formdata)
+        dispatch({ type: SET_PNADD_RESET})
+    }
+    catch(e) {
+        dispatch({ type: SET_PNADD_RESET})
     }
 }
 
@@ -570,6 +614,35 @@ export default function memo(state = initialState, action) {
                     pictitle: action.pictitle,
                     picDesc: action.picDesc,
                     picImg : action.picImg
+                }
+            }
+            case SET_PNADD_INPUT:
+            return {
+                ...state,
+                pnadd: {
+                    ...state.pnadd,
+                    [action.name]: action.value
+                }
+            }
+        case SET_PNADD_RESET:
+            return {
+                ...state,
+                pnadd: {
+                    ...state.pnadd,
+                    userid : "",
+                    name : "",
+                    phone1 : "",
+                    phone2 : "",
+                    phone3 : "",
+                    text : "",
+                }
+            }
+        case SET_PNADD_USERID:
+            return {
+                ...state,
+                pnadd: {
+                    ...state.pnadd,
+                    userid: action.userid
                 }
             }
         default:

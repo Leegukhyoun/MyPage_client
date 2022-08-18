@@ -92,13 +92,12 @@
 }
 
 :root {
-
-    --border-color: #80a0ff;
-    --button-color: #ccd9ff;
-    --bg-color: #a0b8ff;
-    --bg-color2: #728fe6;
+    --border-color: #bbb;
+    --button-color: rgb(245,245,245);
+    --bg-color: #ccc;
+    --bg-color2: #222;
     --bg-color3: rgba(175, 238, 238, 0.2);
-    --text-color: #3b4975;
+    --text-color: #222;
     --postname : 'twayair';
     --title : 'Cafe24Ssurround';
     --happy : 'Happiness-Sans-Regular';
@@ -131,6 +130,7 @@ img{
     height: 100vh;
     width: 100%;
     font-family: 'GmarketSansMedium';
+    background: rgb(246,248,250);
 }
 
 
@@ -159,6 +159,7 @@ button{
     font-family: 'Y_Spotlight';
     &:hover{
         background: var(--bg-color2);
+        color: var(--bg-color);
     }
 }
 
@@ -253,6 +254,9 @@ button{
             font-size: 18px;
             border-radius: 6px;
             height: 40px;
+            &:hover{
+                color: var(--button-color);
+            }
         }
         #loginInputs{
             display: flex;
@@ -298,8 +302,9 @@ button{
 //header
 
 #header{
-    height: 60px;
-    border-bottom: 1px solid #728fe652;
+    height: 7%;
+    border-bottom: 1px solid #ccc;
+    background: #fff;
     > div{
         height: 100%;
     }
@@ -389,7 +394,7 @@ button{
 #mainIndex{
     // background: rgba(175, 238, 238, 0.2);
     width: 100%;
-    height: 100%;
+    height: 93%;
     .mainleft{
         width: 19%;
         #myPage{
@@ -437,6 +442,9 @@ button{
                     height: 30px;
                     width: 60px;
                     border-radius: 4px;
+                    &:hover{
+                        color: var(--button-color);
+                    }
                 }
                 #imgSize{
                     width: 50px;
@@ -460,11 +468,14 @@ button{
                 padding: 0 40px;
                 width: 100%;
                 button{
-                    color: #3b4975;
+                    color: var(--text-color);
                     height: 40px;
                     width: 100px;
                     border-radius: 4px;
                     box-shadow: 3px 3px 5px -4px;
+                    &:hover{
+                        color: var(--button-color);
+                    }
                 }
             }
             #norSearch{
@@ -581,7 +592,6 @@ button{
                     margin: 0;
                     height: 100%;
                     line-height: 40px;
-                    font-size: 12px;
                     cursor: pointer;
                     color: var(--text-color);
                 }
@@ -649,6 +659,7 @@ button{
                         justify-content: space-between;
                         align-items: center;
                         border-top: 1px solid #999;
+                        background: #fff;
                         h5{
                             font-size: 18px;
                             width: 100%;
@@ -712,6 +723,7 @@ button{
                         cursor: pointer;
                         &:hover{
                             background: var(--bg-color2);
+                            color: var(--bg-color);
                         }
                     }
                     &:hover{
@@ -774,7 +786,7 @@ button{
                         }
                         p{
                             cursor: pointer;
-                            font-size: 12px;
+                            font-size: 14px;
                             margin: 0;
                             height: 100%;
                             line-height: 40px;
@@ -806,7 +818,7 @@ button{
                     font-weight: bold;
                     border-top: 1px solid var(--border-color);
                     border-bottom: 1px solid var(--border-color);
-                    background: #fff;
+                    background: var(--button-color);
                     li{
                         height: 100%;
                         line-height: 35px;
@@ -857,9 +869,10 @@ button{
                                 width: 20%;
                                 font-size: 12px;
                             }
-                            &:hover{
-                                color: var(--text-color);
-                            }
+                        }
+                        &:hover{
+                            color: var(--text-color);
+                            background: var(--bg-color);
                         }
                     }
                 }
@@ -934,6 +947,9 @@ button{
                 top: 6.5%;
                 right: 3%;
                 opacity: 0;
+                &:hover{
+                    color: var(--button-color);
+                }
             }
             &:hover{
                 button{
@@ -1128,6 +1144,9 @@ button{
                 width: 80%;
                 height: 30px;
                 border-radius: 6px;
+                &:hover{
+                    color: var(--button-color);
+                }
             }
             #BMWXcircle{
                 position: absolute;
@@ -1157,7 +1176,7 @@ button{
 #fixed{
     width: 60px;
     height: 300px;
-    background: var(--button-color);
+    background: var(--bg-color);
     position: fixed;
     top: 50%;
     left: 3%;
@@ -1184,7 +1203,7 @@ button{
             line-height: 16px;
             width: 55px;
             height: 15px;
-            background: var(--bg-color);
+            background: var(--button-color);
             border-radius: 30px;
             color: var(--text-color);
             text-align: center;
@@ -1363,6 +1382,9 @@ button{
                             height: 35px;
                             border-radius: 4px;
                             margin-left: 5px;
+                            &:hover{
+                                color: var(--button-color);
+                            }
                         }
                     }
                     &:last-child{
@@ -1398,6 +1420,9 @@ button{
                 margin-top: 12px;
                 height: 40px;
                 border-radius: 4px;
+                &:hover{
+                    color: var(--button-color);
+                }
             }
             .uploadImg{
                 width: 100%;
@@ -1412,6 +1437,9 @@ button{
                     border-radius: 4px;
                     cursor: context-menu;
                     margin-left: 10px;
+                    &:hover{
+                        color: var(--button-color);
+                    }
                 }
             }
         }
@@ -1470,6 +1498,9 @@ button{
                     width: 20%;
                     height: 60px;
                     border-radius: 6px;
+                    &:hover{
+                        color: var(--button-color);
+                    }
                 }
                 #DAWXcircle{
                     position: absolute;
@@ -1631,6 +1662,7 @@ button{
     padding-top: 30px;
     box-shadow: 5px 0px 5px -4px;
     border-left: 1px solid #ccc;
+    background: #fff;
     .subMyPage{
         width: 100%;
         display: flex;
@@ -1709,6 +1741,7 @@ button{
     flex-direction: column;
     align-items: center;
     color: var(--text-color);
+    background: #fff;
     h1{
         width: 100%;
         font-family: var(--title);
@@ -1742,10 +1775,38 @@ button{
                 #BMinput2{
                     width: 350px;
                 }
+                #PM3{
+                    width: 200px;
+                }
             }
+            .PMInput{
+                padding: 0 5px;
+                &:nth-child(1) {
+                        width: 100px;
+                    }
+                
+                    &:nth-child(2) {
+                        width: 50px;
+                    }
+                
+                    &:nth-child(3) {
+                        width: 60px;
+                    }
+                
+                    &:nth-child(4) {
+                        width: 60px;
+                    }
+                
+                    &:nth-child(5) {
+                        width: 60px;
+                    }
+                }
             button{
                 border-radius: 6px;
                 height: 30px;
+                &:hover{
+                    color: var(--button-color);
+                }
             }
             #submitBM{
                 position: absolute;
@@ -1787,6 +1848,54 @@ button{
                     }
                 }
             }
+        }
+        table{
+            width: 100%;
+            text-align: center;
+            tr{
+                td{
+                    &:nth-child(1){
+                        width: 15%;
+                    }
+                    &:nth-child(2){
+                        width: 50%;
+                    }
+                    &:nth-child(3){
+                        width: 25%;
+                    }
+                    &:nth-child(4){
+                        svg{
+                            height: 100%;
+                            position: absolute;
+                            top: 0;
+                        }
+                    }
+                }
+            }
+        }
+        > table{
+            font-size: 20px;
+            height: 50px;
+            margin-top: 30px;
+            border-top: 1px solid var(--border-color);
+            background: var(--button-color);
+            tr{
+                td{
+                    padding-left: 20px;
+                    &:nth-child(1){
+                        padding-left: 50px;
+                    }
+                    &:nth-child(2){
+                        padding-right: 70px;
+                    }
+                    &:nth-child(3){
+                        padding-right: 150px;
+                    }
+                }
+            }
+        }
+        #PMtable{
+            margin-top: 0;
         }
     }
 }
@@ -1889,6 +1998,9 @@ button{
         width: 60px;
         height: 35px;
         border-radius: 4px;
+        &:hover{
+            color: var(--button-color);
+        }
     }
 }
 //normemo page end
@@ -1898,6 +2010,7 @@ button{
 .NMC{
     width: 70%;
     height: 100vh;
+    background: #fff;
     form{
         width: 100%;
         height: 100%;
@@ -1980,6 +2093,9 @@ button{
                 &:last-child{
                     margin-left: 10px;
                 }
+                &:hover{
+                    color: var(--button-color);
+                }
             }
         }
         .detailView{
@@ -2018,6 +2134,9 @@ button{
             button{
                 height: 35px;
                 border-radius: 4px;
+                &:hover{
+                    color: var(--button-color);
+                }
                 &:nth-child(2){
                     margin-left: 10px;
                 }
@@ -2097,6 +2216,9 @@ button{
         button{
             height: 35px;
             border-radius: 4px;
+            &:hover{
+                color: var(--button-color);
+            }
         }
     }
 }
@@ -2180,6 +2302,9 @@ button{
                 button{
                     height: 35px;
                     border-radius: 4px;
+                    &:hover{
+                        color: var(--button-color);
+                    }
                 }
             }
         }
@@ -2252,6 +2377,9 @@ button{
             &:last-child{
                 margin-left: 20px;
             }
+            &:hover{
+                color: var(--button-color);
+            }
         }
 }
 #MIWUL{
@@ -2279,6 +2407,9 @@ button{
         button{
             height: 35px;
             border-radius: 4px;
+            &:hover{
+                color: var(--button-color);
+            }
         }
     }
 }
@@ -2439,6 +2570,9 @@ button{
             &:last-child{
                 margin-left: 20px;
             }
+            &:hover{
+                color: var(--button-color);
+            }
         }
 }
 
@@ -2551,6 +2685,9 @@ button{
         width: 60px;
         height: 35px;
         border-radius: 4px;
+        &:hover{
+            color: var(--button-color);
+        }
     }
 }
 #picText{
@@ -2612,3 +2749,466 @@ button{
         border-bottom: 1px dotted var(--border-color);
 }
 //piclist
+
+
+//반응형
+
+@media screen and (max-width:750px){
+    .App{
+        height: auto;
+    }
+    #header{
+        position: fixed;
+        background: #fff;
+        width: 100%;
+        z-index: 10;
+    }
+    #innerHeader{
+        padding: 0 30px;
+        a{
+            h1{
+                font-size: 18px;
+            }
+        }
+        ul{
+            li{
+                &:nth-child(1){
+                    display: none;
+                }
+                &:nth-child(2){
+                    display: none;
+                }
+            }
+        }
+    }
+    #Clock{
+        display: none;
+    }
+    #calendar{
+        display: none;
+    }
+    #fixed{
+        top: 90%;
+        left: 8%;
+        width: 300px;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        z-index: 5;
+    }
+    #mainIndex{
+        height: 1720px;
+        #maindivide{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .mainleft{
+                position: absolute;
+                top: 102%;
+                width: 100%;
+                height: 320px;
+                padding: 0 20px;
+                #myPage{
+                    display: none;
+                }
+                #reamBMbox{
+                    display: none;
+                }
+                #moreBMbox{
+                    display: none;
+                }
+                #bookmark{
+                    #todoList{
+                        #todoItem{
+                            height: 240px;
+                            ul{
+                                overflow: hidden;
+                                .emerMemoTitle{
+                                    height: 30px;
+                                    font-size: 16px;
+                                }
+                                li{
+                                    height: 26.2px;
+                                    #itemDel{
+                                        div{
+                                            width: 20px;
+                                            height: 20px;
+                                            .itemBtn{
+                                                width: 12px;
+                                                height: 3px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        #todoAdd{
+                            height: 50px;
+                            #todoBtn{
+                                width: 30px;
+                                height: 30px;
+                                margin-top: 5px;
+                                .todoPlusBtn{
+                                    width: 20px;
+                                    height: 3px;
+                                }
+                            }
+                        }
+                        #BookMemoWindow{
+                            bottom: 50%;
+                            left: 5.5%;
+                            position: fixed;
+                        }
+                    }
+                }
+            }
+            #mainright{
+                position: absolute;
+                top: 10%;
+                #rightTop{
+                    flex-direction: column;
+                    #picTitle{
+                        width: 100%;
+                    }
+                    #picView{
+                        width: 100%;
+                        height: 288px;
+                        margin: 0;
+                        .picboard{
+                            li{
+                                h5{
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+                    }
+                    #boaCal{
+                        width: 100%;
+                        height: 300px;
+                        position: absolute;
+                        top: 53%;
+                        padding: 0;
+                        #board{
+                            height: 100%;
+                            #boardtitle{
+                                h4{
+                                    padding-right: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+                #rightBot{
+                    position: absolute;
+                    bottom: -70%;
+                    #DdayAdd{
+                        #DdayAddWindow{
+                            width: 90%;
+                            height: 600px;
+                            position: fixed;
+                            form{
+                                #DAW{
+                                    #DAWXcircle{
+                                        top: 2%;
+                                    }
+                                    #DAWCal{
+                                        width: 90%;
+                                        height: 250px;
+                                        margin-bottom: 40px;
+                                    }
+                                    input{
+                                        width: 200px;
+                                        margin-bottom: 20px;
+                                    }
+                                    button{
+                                        margin-top: 20px;
+                                        height: 35px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    #DDay{
+                        display: flex;
+                        flex-direction: column;
+                        .ddayDiv{
+                            width: 100%;
+                            margin: 0;
+                            margin-bottom: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #loading{
+        img{
+            left: 44%;
+        }
+    }
+    #footer{
+        position: relative;
+        z-index: 10;
+        padding-top: 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+        #footerBot{
+            .footerDis{
+                ul{
+                    display: flex;
+                    flex-direction: column;
+                    li{
+                        margin: 0;
+                        text-align: left;
+                        font-size: 11px;
+                    }
+                }
+            }
+        }
+        > div > p{
+            font-size: 13.1px;
+        }
+    }
+    .subLeft{
+        display: none;
+    }
+    .subindex{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .subRight{
+        width: 100%;
+        padding-top: 70px;
+        padding-left: 10px;
+        padding-right: 10px;
+        #BMmanager {
+            #PMtable{
+                li{
+                    padding: 0;
+                    > table{
+                        tr{
+                            td{
+                                &:nth-child(1){
+                                    padding: 0;
+                                    width: 30%;
+                                }
+                                &:nth-child(2){
+                                    padding: 0;
+                                    width: 60%;
+                                }
+                                &:nth-child(3){
+                                    padding: 0;
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            > table{
+                tr{
+                    td{
+                        &:nth-child(1){
+                            padding: 0;
+                        }
+                        &:nth-child(2){
+                            padding: 0;
+                        }
+                        &:nth-child(3){
+                            padding: 0;
+                            display: none;
+                        }
+                    }
+                }
+            }
+            form{
+                #BMAddBtn {
+                    position: relative;
+                    width: 100%;
+                    justify-content: center;
+                    #BMAddInput {
+                        position: absolute;
+                        width: 68%;
+                        height: 170px;
+                        padding: 10px;
+                        margin: 0;
+                        left: 0;
+                        top: 0;
+                        background: #fff;
+                        z-index: 5;
+                        p{
+                            span{
+                                display: none;
+                            }
+                            #BMinput{
+                                width: 100%;
+                                margin-bottom: 30px;
+    
+                            }
+                            #BMinput.PMInput{
+                                margin: 0;
+                            }
+                            #PM1{
+                                display: block;
+                            }
+                            #PM2{
+                                width: 52px;
+                            }
+                            #BMinput2{
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        h1{
+            margin-top: 10px;
+        }
+        #BMmanager{
+            padding: 0 10px;
+        }
+        #norTitle{
+            li{
+                &:nth-child(1){
+                    width: 100%;
+                }
+                &:nth-child(2){
+                    display: none;
+                }
+            }
+        }
+        #rightNorList{
+            #norList{
+                padding: 0;
+                li{
+                    &:nth-child(1){
+                        width: 100%;
+                    }
+                    &:nth-child(2){
+                        display: none;
+                    }
+                }
+            }
+        }
+        #picSearchBar{
+            left: 5%;
+            width: 220px;
+            justify-content: center;
+            input{
+                width: 160px;
+            }
+            button{
+                margin-left: 10px;
+            }
+        }
+        #addPicBtn{
+            right: 3%;
+        }
+        #norSearchBar{
+            left: 5%;
+            width: 220px;
+            justify-content: center;
+            input{
+                width: 160px;
+            }
+            button{
+                margin-left: 10px;
+            }
+        }
+        #addNorBtn{
+            right: 3%;
+
+    }
+    }
+    #picListPage{
+        #picTitle{
+            padding: 0 10px;
+            li{
+                &:nth-child(1){
+                    width: 50%;
+                }
+                &:nth-child(2){
+                    width: 50%;
+                }
+                &:nth-child(3){
+                    width: 30%;
+                    display: none;
+                }
+            }
+        }
+        #rightPicList{
+            height: 500px;
+            #picList{
+                padding: 0 10px;
+                li{
+                    &:nth-child(1){
+                        width: 50%;
+                    }
+                    &:nth-child(2){
+                        width: 50%;
+                    }
+                    &:nth-child(3){
+                        width: 30%;
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    .NMC{
+        width: 100%;
+        height: 850px;
+        padding-top: 60px;
+        form{
+            padding: 0;
+            #datailImg{
+                padding: 0;
+                img{
+                    max-width: 340px;
+                    height: auto;
+                }
+                padding-bottom: 10px;
+            }
+            .NMCInput{
+                padding: 0;
+                input{
+                    width: 90%;
+                }
+                textarea{
+                    width: 90%;
+                }
+            }
+            .detailBtns{
+                margin-top: 10px;
+                padding: 0 10px;
+                button{
+                    margin-right: 10px;
+                }
+            }
+            .detailView{
+                padding: 10px 20px;
+            }
+            #imgText{
+                height: 200px;
+            }
+        }
+    }
+    #slider{
+        height: 100vh;
+    }
+    #frontWindow{
+        width: 90%;
+        #loginForm{
+            padding: 0 30px;
+        }
+        #loginMenus{
+            padding: 0 80px;
+        }
+    }
+}
