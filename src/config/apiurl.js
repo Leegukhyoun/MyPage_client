@@ -1,1 +1,1 @@
-export const API_URL = "https://my-diary-server-01.herokuapp.com";
+export const API_URL = "https://my-diary-server-01.herokuapp.com/";
