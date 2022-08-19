@@ -48,7 +48,7 @@ export const pointUser = () => async dispatch => {
     const id = getCookie('userid');
     //eslint-disable-next-line
     try {
-        const response = await axios.get(`${API_URL}/${id}`);
+        const response = await axios.get(`${API_URL}/mainindex/${id}`);
         const user = response.data;
         dispatch({type:GET_USER_SUCCESS, user})
     }
