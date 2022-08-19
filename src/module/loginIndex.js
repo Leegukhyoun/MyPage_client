@@ -1,5 +1,7 @@
 import axios from "axios";
+import { API_URL } from "../config/apiurl";
 import { getCookie } from "../util/cookie";
+
 
 const GET_USER = "GET_RGET_USERES";
 const GET_USER_ERROR = "GET_USER_ERROR";
@@ -46,7 +48,7 @@ export const pointUser = () => async dispatch => {
     const id = getCookie('userid');
     //eslint-disable-next-line
     try {
-        const response = await axios.get(`http://localhost:3001/mainindex/${id}`);
+        const response = await axios.get(`${API_URL}/${id}`);
         const user = response.data;
         dispatch({type:GET_USER_SUCCESS, user})
     }
