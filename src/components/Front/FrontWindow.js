@@ -29,7 +29,7 @@ const FrontWindow = () => {
     }
     const JWBtn = () => {
         dispatch(toggleJW());
-        dispatch(setImageUrl('no-image.png'));
+        setImageUrl('no-image.png');
     }
     const onSubmit = (e) => {
         e.preventDefault();
@@ -61,15 +61,12 @@ const FrontWindow = () => {
         }
     }
     const onAddData = (data) => {
-        console.log(data);
         const postAdd = data.address;
-        console.log(postAdd);
         dispatch(setAddr(postAdd));
     }
 
     const SignUpInput = (e) => {
         dispatch(setSignUpInput(e));
-        console.log(createUser);
     }
 
     const [ isPopupOpen, setIsPopupOpen ] = useState(false);
@@ -119,50 +116,51 @@ const FrontWindow = () => {
             <div style={{ display: openJW ? 'block' : 'none' }}>
                 <div id='frontBg' onClick={JWBtn}></div>
                 <div id='JoinWindow'>
-                    <form onSubmit={onSubmitSign} enctype="multipart/form-data">
+                    <form onSubmit={onSubmitSign} encType="multipart/form-data">
                         <div id='JW'>
                             <div id='JWXcircle' onClick={JWBtn}><BsFillXCircleFill /></div>
                             <p id='readMe'>* 필수 입력</p>
                             <h1>회원 가입</h1>
                             <table>
+                                <tbody>
                                 <tr>
                                     <td>＊ ID : </td>
-                                    <td><input type="text" name='userid' value={createUser.userid} onChange={SignUpInput} placeholder='ID를 입력해주세요.' spellcheck="false" autocomplete='off'/></td>
+                                    <td><input type="text" name='userid' value={createUser.userid} onChange={SignUpInput} placeholder='ID를 입력해주세요.' spellCheck="false" autoComplete='off'/></td>
                                 </tr>
                                 <tr>
                                     <td>＊ 이름 : </td>
-                                    <td><input type="text" name='name' value={createUser.name} onChange={SignUpInput} placeholder='이름을 입력해주세요.' spellcheck="false" autocomplete='off' /></td>
+                                    <td><input type="text" name='name' value={createUser.name} onChange={SignUpInput} placeholder='이름을 입력해주세요.' spellCheck="false" autoComplete='off' /></td>
                                 </tr>
                                 <tr>
                                     <td>＊ 비밀번호 : </td>
-                                    <td><input type="password" name='pw' value={createUser.pw} onChange={SignUpInput} placeholder='비밀번호를 입력해주세요.' spellcheck="false" autocomplete='off'/></td>
+                                    <td><input type="password" name='pw' value={createUser.pw} onChange={SignUpInput} placeholder='비밀번호를 입력해주세요.' spellCheck="false" autoComplete='off'/></td>
                                 </tr>
                                 <tr>
                                     <td>＊ 비밀번호 확인 : </td>
-                                    <td><input type="password" name='pwch' value={createUser.pwch} onChange={SignUpInput} placeholder='비밀번호를 다시 입력해주세요.' spellcheck="false" autocomplete='off'/></td>
+                                    <td><input type="password" name='pwch' value={createUser.pwch} onChange={SignUpInput} placeholder='비밀번호를 다시 입력해주세요.' spellCheck="false" autoComplete='off'/></td>
                                 </tr>
                                 <tr>
                                     <td>연락처 : </td>
-                                    <td><input type="text" name='phone1' value={createUser.phone1} onChange={SignUpInput} spellcheck="false" autocomplete='off'/> - <input type="text" name='phone2' value={createUser.phone2} onChange={SignUpInput} spellcheck="false" autocomplete='off'/> - <input type="text" name='phone3' value={createUser.phone3} onChange={SignUpInput} spellcheck="false" autocomplete='off'/></td>
+                                    <td><input type="text" name='phone1' value={createUser.phone1} onChange={SignUpInput} spellCheck="false" autoComplete='off'/> - <input type="text" name='phone2' value={createUser.phone2} onChange={SignUpInput} spellCheck="false" autoComplete='off'/> - <input type="text" name='phone3' value={createUser.phone3} onChange={SignUpInput} spellCheck="false" autoComplete='off'/></td>
                                 </tr>
                                 <tr>
                                     <td>E-mail : </td>
-                                    <td><input type="text" name='email1' value={createUser.email1} onChange={SignUpInput} spellcheck="false" autocomplete='off'/> @ <input type="text" name='email2' value={createUser.email2} onChange={SignUpInput} spellcheck="false" autocomplete='off'/></td>
+                                    <td><input type="text" name='email1' value={createUser.email1} onChange={SignUpInput} spellCheck="false" autoComplete='off'/> @ <input type="text" name='email2' value={createUser.email2} onChange={SignUpInput} spellCheck="false" autoComplete='off'/></td>
                                 </tr>
                                 <tr>
                                     <td>주소 : </td>
-                                    <td><input type="text" name='addr1' value={createUser.addr1} onChange={SignUpInput} spellcheck="false" autocomplete='off'/> <button onClick={openPostCode} onChange={SignUpInput}>주소 선택</button></td>
-                                    <div id="popupDom">
+                                    <td><input type="text" name='addr1' value={createUser.addr1} onChange={SignUpInput} spellCheck="false" autoComplete='off'/> <button onClick={openPostCode} onChange={SignUpInput}>주소 선택</button></td>
+                                    <td><div id="popupDom">
                                         {isPopupOpen && (
                                             <PopupDom>
                                                 <PopupPostCode onClose={closePostCode} onAddData={onAddData} />
                                             </PopupDom>
                                         )}
-                                    </div>
+                                    </div></td>
                                 </tr>
                                 <tr>
                                     <td>상세 주소 :</td>
-                                    <td><input type="text" name='addr2' value={createUser.addr2} onChange={SignUpInput} spellcheck="false" autocomplete='off'/></td>
+                                    <td><input type="text" name='addr2' value={createUser.addr2} onChange={SignUpInput} spellCheck="false" autoComplete='off'/></td>
                                 </tr>
                                 <tr>
                                     <td>프로필 이미지 : </td>
@@ -180,6 +178,7 @@ const FrontWindow = () => {
                                             </div>)}
                                     </td>
                                 </tr>
+                                </tbody>
                             </table>
                             <button type='submit'>등록</button>
                         </div>
@@ -190,8 +189,8 @@ const FrontWindow = () => {
                 <h2 id='loginTitle'>회원 로그인</h2>
                 <form id='loginForm' onSubmit={onSubmit}>
                     <div id='loginInputs'>
-                        <input name='userid' value={loginData.userid} onChange={onChange} placeholder='아이디' autocomplete='off' spellcheck="false"/>
-                        <input type="password" name='pw' value={loginData.pw} onChange={onChange} placeholder='비밀번호' autocomplete='off' spellcheck="false"/>
+                        <input name='userid' value={loginData.userid} onChange={onChange} placeholder='아이디' autoComplete='off' spellCheck="false"/>
+                        <input type="password" name='pw' value={loginData.pw} onChange={onChange} placeholder='비밀번호' autoComplete='off' spellCheck="false"/>
                     </div>
                     <div id='loginShadow'>
                         <button>로그인</button>

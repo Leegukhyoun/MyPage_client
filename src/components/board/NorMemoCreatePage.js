@@ -32,11 +32,11 @@ const NorMemoCreatePage = ({setInput, setReset, setUserid, addNor, normem}) => {
                 <p className='NMCmini'>사소한 일, 장 볼 것, 잊기 싫은 것 모두 자유롭게 작성 해주세요.</p> 
                 <div className='NMCInput'>
                     <p>제목 : </p>    
-                    <input type="text" name='title' value={normem.title} onChange={setTitle} spellcheck="false" autocomplete='off'/>
+                    <input type="text" name='title' value={normem.title} onChange={setTitle} spellCheck="false" autoComplete='off'/>
                 </div>
                 <div className='NMCInput' id='NMCtext'>
                     <p>내용 : </p>    
-                    <textarea name='norDesc' value={normem.norDesc} onChange={setInput} spellcheck="false" autocomplete='off'></textarea>
+                    <textarea name='norDesc' value={normem.norDesc} onChange={setInput} spellCheck="false" autoComplete='off'></textarea>
                 </div>
                 <div className='NMCBtn'>
                     <button type='onSubmit'>작성</button>

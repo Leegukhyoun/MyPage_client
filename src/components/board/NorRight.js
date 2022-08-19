@@ -43,7 +43,7 @@ const NorRight = ({data}) => {
             </div>
             <div>
                 <div id='norSearchBar'>
-                    <input name='search' type='text' onChange={onChange} value={search} onKeyPress={onKeyPress} autocomplete='off' spellcheck="false"/>
+                    <input name='search' type='text' onChange={onChange} value={search} onKeyPress={onKeyPress} autoComplete='off' spellCheck="false"/>
                     <button onClick={onClick}>검색</button>
                 </div>
                 <Link to="/normemocreate"><button id='addNorBtn'>글쓰기</button></Link>

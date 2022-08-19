@@ -68,11 +68,11 @@ const PicMemoCreatePage = ({setInput, setReset, setUserid, addPic, picmem}) => {
                 </div>
                 <div className='NMCInput'>
                     <p>제목 : </p>    
-                    <input type="text" name='pictitle' value={picmem.pictitle} onChange={setTitle} spellcheck="false" autocomplete='off'/>
+                    <input type="text" name='pictitle' value={picmem.pictitle} onChange={setTitle} spellCheck="false" autoComplete='off'/>
                 </div>
                 <div className='NMCInput' id='picText'>
                     <p>내용 : </p>    
-                    <textarea name='picDesc' value={picmem.picDesc} onChange={setInput} spellcheck="false" autocomplete='off'></textarea>
+                    <textarea name='picDesc' value={picmem.picDesc} onChange={setInput} spellCheck="false" autoComplete='off'></textarea>
                 </div>
                 <div className='NMCBtn'>
                     <button type='onSubmit'>작성</button>

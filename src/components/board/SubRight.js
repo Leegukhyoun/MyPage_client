@@ -30,7 +30,7 @@ const SubRight = ({info, toggleBMADD, BMAddBtn, BMADD, setBMAddInput, setBMAddRe
                 <form>
                     <div id='BMAddBtn'>
                         <div id='BMAddInput' style={{ opacity: toggleBMADD ? '1' : '0', pointerEvents: toggleBMADD ? 'auto' : 'none' }}>
-                            <p>북마크 이름 : <input name='name' type="text" id="BMinput" value={BMADD.name} onChange={setUserid} spellcheck="false" autocomplete='off'/> URL : <input name="url" type="text" id="BMinput2" value={BMADD.url} onChange={setBMAddInput} spellcheck="false" autocomplete='off' /></p>
+                            <p>북마크 이름 : <input name='name' type="text" id="BMinput" value={BMADD.name} onChange={setUserid} spellCheck="false" autoComplete='off'/> URL : <input name="url" type="text" id="BMinput2" value={BMADD.url} onChange={setBMAddInput} spellCheck="false" autoComplete='off' /></p>
                         </div>
                         <button onClick={BMAddBtn}>등록</button>
                         <button id='submitBM' onClick={addBMBtn} style={{ display: toggleBMADD ? 'block' : 'none' }}>완료</button>

@@ -42,7 +42,7 @@ const PicRight = ({data}) => {
             </div>
             <div>
                 <div id='picSearchBar'>
-                    <input name='search' type='text' autocomplete='off' spellcheck="false" onChange={onChange} onKeyPress={onKeyPress}/>
+                    <input name='search' type='text' autoComplete='off' spellCheck="false" onChange={onChange} onKeyPress={onKeyPress}/>
                     <button onClick={onClick}>검색</button>
                 </div>
                 <Link to="/picmemocreate"><button id='addPicBtn'>글쓰기</button></Link>

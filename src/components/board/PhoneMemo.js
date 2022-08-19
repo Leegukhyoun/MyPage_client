@@ -46,22 +46,24 @@ const PhoneMemo = ({data}) => {
                 <form>
                     <div id='BMAddBtn'>
                         <div id='BMAddInput' style={{ opacity: togglePNADD ? '1' : '0', pointerEvents: togglePNADD ? 'auto' : 'none' }}>
-                            <p>이름 : <input className='PMInput' onChange={setInput} name='name' value={PNADD.name} type="text" id="BMinput" spellcheck="false" autocomplete='off' />
-                             <span id='PM1'>연락처 : </span><input className='PMInput' id='PM2' onChange={setInput} name='phone1' value={PNADD.phone1} type="text" spellcheck="false" autocomplete='off' />
-                              - <input className='PMInput' onChange={setInput} value={PNADD.phone2} name='phone2'  type="text" spellcheck="false" autocomplete='off' />
-                               - <input className='PMInput' onChange={setInput} name='phone3' value={PNADD.phone3} type="text" spellcheck="false" autocomplete='off' />
-                               <span>　　비고 : <input id='PM3' className='PMInput'  onChange={setInput} name='text' value={PNADD.text} type="text" spellcheck="false" autocomplete='off' /></span></p>
+                            <p>이름 : <input className='PMInput' onChange={setInput} name='name' value={PNADD.name} type="text" id="BMinput" spellCheck="false" autoComplete='off' />
+                             <span id='PM1'>연락처 : </span><input className='PMInput' id='PM2' onChange={setInput} name='phone1' value={PNADD.phone1} type="text" spellCheck="false" autoComplete='off' />
+                              - <input className='PMInput' onChange={setInput} value={PNADD.phone2} name='phone2'  type="text" spellCheck="false" autoComplete='off' />
+                               - <input className='PMInput' onChange={setInput} name='phone3' value={PNADD.phone3} type="text" spellCheck="false" autoComplete='off' />
+                               <span>　　비고 : <input id='PM3' className='PMInput'  onChange={setInput} name='text' value={PNADD.text} type="text" spellCheck="false" autoComplete='off' /></span></p>
                         </div>
                         <button onClick={PNBtn}>등록</button>
                         <button id='submitBM' onClick={addPN} style={{ display: togglePNADD ? 'block' : 'none' }}>완료</button>
                     </div>
                 </form>
                 <table>
+                    <tbody>
                     <tr>
                         <td>이름</td>
                         <td>연락처</td>
                         <td>비고</td>
                     </tr>
+                    </tbody>
                 </table>
                 <ul id='PMtable'>
                     {data.map(data =>

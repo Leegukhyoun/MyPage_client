@@ -19,12 +19,14 @@ const PhoneList = ({data}) => {
     return (
         <li>
             <table>
-                <tr>
-                    <td>{data.name}</td>
-                    <td>{data.phone1}-{data.phone2}-{data.phone3}</td>
-                    <td>{data.text}</td>
-                    <td><BsFillTrashFill onClick={PNdelete}/></td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td>{data.name}</td>
+                        <td>{data.phone1}-{data.phone2}-{data.phone3}</td>
+                        <td>{data.text}</td>
+                        <td><BsFillTrashFill onClick={PNdelete} /></td>
+                    </tr>
+                </tbody>
             </table>
         </li>
     );

@@ -11,7 +11,7 @@ const BookMark = ({info, openBMW, onBMWOn, onBMWOff}) => {
                     <ul>
                         <li className='emerMemoTitle'><BsPencil/><p>간단메모</p></li>
                         {info.map(info=>
-                            <BookMemo info={info}/>
+                            <BookMemo info={info} key={info.id}/>
                             )}
                     </ul>
                 </div>

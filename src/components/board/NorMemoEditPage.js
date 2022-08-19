@@ -52,11 +52,11 @@ const NorMemoEditPage = () => {
                 <p className='NMCmini'>수정을 완료하고 확인을 눌러주세요.</p> 
                 <div className='NMCInput'>
                     <p>제목 : </p>    
-                    <input type="text" name='title' spellcheck="false" autocomplete='off' onChange={onChange} defaultValue={data[0].title}/>
+                    <input type="text" name='title' spellCheck="false" autoComplete='off' onChange={onChange} defaultValue={data[0].title}/>
                 </div>
                 <div className='NMCInput' id='NMCtext'>
                     <p>내용 : </p>    
-                    <textarea name='norDesc' spellcheck="false" autocomplete='off' onChange={onChange} defaultValue={data[0].norDesc}></textarea>
+                    <textarea name='norDesc' spellCheck="false" autoComplete='off' onChange={onChange} defaultValue={data[0].norDesc}></textarea>
                 </div>
                 <div className='NMCBtn'>
                     <button onClick={onSubmit}>수정</button>

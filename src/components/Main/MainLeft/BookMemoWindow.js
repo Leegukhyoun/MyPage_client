@@ -37,7 +37,7 @@ const BookMemoWindow = ({openBMW, onBMWOff}) => {
                     <div id='BMW'>
                         <div id='BMWXcircle' onClick={XClick}><BsFillXCircleFill /></div>
                         <h1>간단 메모 등록</h1>
-                        <input name='emertext' value={emer.emertext} onChange={setEmertext} placeholder='메모를 입력해주세요.' autocomplete='off' spellcheck="false"/>
+                        <input name='emertext' value={emer.emertext} onChange={setEmertext} placeholder='메모를 입력해주세요.' autoComplete='off' spellCheck="false"/>
                         <button type='submit'>등록</button>
                     </div>
                 </form>

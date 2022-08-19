@@ -39,9 +39,9 @@ const DdayAddWindow = () => {
                         <div id='DAWXcircle' onClick={DAWBtn}><BsFillXCircleFill /></div>
                         <h1>D-DAY 등록</h1>
                         <div id='DAWCal'><Calender /></div>
-                        <input type="text" name='ddaydate' value={data.datetext} autocomplete='off' spellcheck="false"/>
+                        <input type="text" name='ddaydate' defaultValue={data.datetext} autoComplete='off' spellCheck="false"/>
                         <p>날짜를 선택하고 내용을 입력해주세요.</p>
-                        <input name='ddaytext' placeholder='내용을 입력해주세요.' onChange={onChange} autocomplete='off' spellcheck="false"/>
+                        <input name='ddaytext' placeholder='내용을 입력해주세요.' onChange={onChange} autoComplete='off' spellCheck="false"/>
                         <button type='submit'>등록</button>
                     </div>
                 </form>

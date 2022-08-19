@@ -57,7 +57,7 @@ const PicMemoEditPage = () => {
     }
     return (
         <div className='NMC'>
-            <form enctype="multipart/form-data" onSubmit={onSubmit}>
+            <form encType="multipart/form-data" onSubmit={onSubmit}>
                 <p className='NMCtitle'>사진 메모 수정</p>
                 <p className='NMCmini'>수정을 완료하고 확인을 눌러주세요.</p> 
                 <div className='NMCInput picImage'>
@@ -73,11 +73,11 @@ const PicMemoEditPage = () => {
                 </div>
                 <div className='NMCInput'>
                     <p>제목 : </p>    
-                    <input type="text" name='pictitle' onChange={onChange} spellcheck="false" autocomplete='off' defaultValue={data[0].pictitle}/>
+                    <input type="text" name='pictitle' onChange={onChange} spellCheck="false" autoComplete='off' defaultValue={data[0].pictitle}/>
                 </div>
                 <div className='NMCInput' id='picText'>
                     <p>내용 : </p>    
-                    <textarea name='picDesc' onChange={onChange} spellcheck="false" autocomplete='off' defaultValue={data[0].picDesc}></textarea>
+                    <textarea name='picDesc' onChange={onChange} spellCheck="false" autoComplete='off' defaultValue={data[0].picDesc}></textarea>
                 </div>
                 <div className='NMCBtn'>
                     <button type='onSubmit'>작성</button>

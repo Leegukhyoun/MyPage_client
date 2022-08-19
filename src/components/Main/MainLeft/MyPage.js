@@ -74,7 +74,7 @@ const MyPage = ({info}) => {
                 <button onClick={logoutBtn}>로그아웃</button>
             </div>
             <div id='norSearch'>
-                <input name='search' type="text" placeholder='일반메모 검색' onChange={onChange} value={search} onKeyPress={onKeyPress} autocomplete='off' spellcheck="false"/>
+                <input name='search' type="text" placeholder='일반메모 검색' onChange={onChange} value={search} onKeyPress={onKeyPress} autoComplete='off' spellCheck="false"/>
                 <div id='norSearchIcon' onClick={onClick}><FaSearch /></div>
             </div>
             <div id='botBtn'>
