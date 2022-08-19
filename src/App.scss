@@ -3211,4 +3211,29 @@ button{
             padding: 0 80px;
         }
     }
+    form{
+        #searchTitle{
+            li{
+                &:nth-child(1){
+                    width: 100%;
+                }
+                &:nth-child(2){
+                    display: none;
+                }
+            }
+        }
+        #searchList{
+            #norList{
+                padding: 0;
+                li{
+                    &:nth-child(1){
+                        width: 100%;
+                    }
+                    &:nth-child(2){
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
 }
