@@ -10,6 +10,7 @@ import PopupPostCode from './AddressSearch/PopupPostCode';
 import PopupDom from './AddressSearch/PopupDom';
 import { toggleJW } from '../../module/pageutils';
 import { setSignUpInput, setAddr, setImg,setSignup } from '../../module/createUser';
+import TestID from './TestID';
 
 const FrontWindow = () => {
     const { openJW } = useSelector(state=>state.pageutils.utils);
@@ -44,7 +45,7 @@ const FrontWindow = () => {
                     alert('로그인 되었습니다.');
                     //현재시간 객체 생성
                     let expires = new Date();
-                    //60분 더한 값으로 변경
+                    //300분 더한 값으로 변경
                     expires.setMinutes(expires.getMinutes()+300);
                     setCookie('userid', `${userid}`, {path : `/`, expires});
                     setCookie('pw', `${pw}`, {path : `/`, expires});
@@ -201,6 +202,7 @@ const FrontWindow = () => {
                     <p>비밀번호 찾기</p>
                 </div>
             </div>
+            <TestID/>
         </>
     );
 };

@@ -9,6 +9,7 @@ const GET_USER_SUCCESS = "GET_USER_SUCCESS";
 const SET_LOGIN = "SET_LOGIN";
 const SET_LOGOUT = "SET_LOGOUT";
 const SET_USERID = "SET_USERID";
+
 const initialState = {
     user: {
         loading: false,
