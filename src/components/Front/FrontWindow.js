@@ -98,20 +98,38 @@ const FrontWindow = () => {
             dispatch(setImg(response.data.img));
           });
     }
-
-    const onSubmitSign = () => {
+    const onlyText = (data) => {
+        return /[^a-zA-Z0-9]/g.test(data);
+      };
+    const passwordTest = (data) => {
+        return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/g.test(data);
+    };
+    const onSubmitSign = (e) => {
+        e.preventDefault();
         if (createUser.userid === '' || createUser.name === '' || createUser.pw === '' || createUser.pwch === '') {
             alert('필수 항목을 모두 입력해주세요.');
         } else {
-            if (createUser.pw === createUser.pwch) {
-                dispatch(setSignup());
-                dispatch(toggleJW());
-                setImageUrl(null);
+            if(onlyText(createUser.userid)){
+                console.log(onlyText(createUser.userid));
+                alert('ID는 영문자, 숫자만 사용 가능합니다.')
             } else {
-                alert('입력하신 비밀번호와 비밀번호 확인이 일치하지 않습니다.')
+                if(!passwordTest(createUser.pw)){
+                    console.log(onlyText(createUser.userid));
+                    console.log(onlyText(createUser.pw));
+                    alert('비밀번호는 8자리 이상, 영문자, 숫자, 특수문자가 포함되어야 합니다.')
+                } else {
+                    if (createUser.pw === createUser.pwch) {
+                        dispatch(setSignup());
+                        dispatch(toggleJW());
+                        setImageUrl(null);
+                    } else {
+                        alert('입력하신 비밀번호와 비밀번호 확인이 일치하지 않습니다.')
+                    }
+                }
             }
         }
     }
+
     return (
         <>
             <div style={{ display: openJW ? 'block' : 'none' }}>
