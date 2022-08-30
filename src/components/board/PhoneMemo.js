@@ -30,7 +30,7 @@ const PhoneMemo = ({data}) => {
         if (!PNADD.phone1) {
             alert('전화번호를 입력해주세요.')
         } else {
-            dispatch(addPnAdd());
+            await dispatch(addPnAdd());
             await dispatch(pointUser());
             dispatch(setOffPNADD());
         }
