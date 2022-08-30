@@ -102,7 +102,7 @@ const MyInfo = () => {
                                     <div><p className='infoTitle'>E-mail</p>{userdata.email1}@{userdata.email2}</div>
                                 </div>
                                 <div id='MIWBtn'>
-                                    <Link to="/infoedit"><button>정보 수정</button></Link>
+                                    {/* <Link to="/infoedit"><button>정보 수정</button></Link> */}
                                     <button onClick={toggleMIWbtn}>회원 탈퇴</button>
                                 </div>
                             </div>
