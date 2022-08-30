@@ -37,9 +37,9 @@ const BookMarkContainer = () => {
     const setUserid = (userid) => {
         dispatch(setBMAddUserid(userid))
     }
-    const addBM = () => {
-        dispatch(addBmAdd());
-        dispatch(pointUser());
+    const addBM = async () => {
+        await dispatch(addBmAdd());
+        await dispatch(pointUser());
     }
     if(loading) return <div id='loading'><img src={`${API_URL}/upload/3305803.png`} alt=''/></div>
     if(error) return <div>에러 발생</div>

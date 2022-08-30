@@ -26,13 +26,13 @@ const PhoneMemo = ({data}) => {
         dispatch(setPNAddInput(e));
         setUserid(userid);
     }
-    const addPN = () => {
+    const addPN = async () => {
         if (!PNADD.phone1) {
             alert('전화번호를 입력해주세요.')
         } else {
-            dispatch(addPnAdd());
-            dispatch(pointUser());
-            dispatch(setOffPNADD());
+            await dispatch(addPnAdd());
+            await dispatch(pointUser());
+            await dispatch(setOffPNADD());
         }
     }
     const PNBtn = (e) => {
