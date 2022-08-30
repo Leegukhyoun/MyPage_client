@@ -32,7 +32,7 @@ const PhoneMemo = ({data}) => {
         } else {
             await dispatch(addPnAdd());
             await dispatch(pointUser());
-            await dispatch(setOffPNADD());
+            dispatch(setOffPNADD());
         }
     }
     const PNBtn = (e) => {
