@@ -5,7 +5,7 @@ import { API_URL } from '../../config/apiurl';
 import { headerOFF, headerOn, toggleMIWFn, toggleNorAll, togglePicAll } from '../../module/pageutils';
 import InfoDel from './InfoDel';
 import MyInfoLeft from './MyInfoLeft';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, Link} from 'react-router-dom';
 import { getCookie } from '../../util/cookie';
 import { pointUser } from '../../module/loginIndex';
 import NorAlldel from './NorAlldel';
@@ -102,6 +102,7 @@ const MyInfo = () => {
                                     <div><p className='infoTitle'>E-mail</p>{userdata.email1}@{userdata.email2}</div>
                                 </div>
                                 <div id='MIWBtn'>
+                                    <Link to="/infoedit"><button>정보 수정</button></Link>
                                     <button onClick={toggleMIWbtn}>회원 탈퇴</button>
                                 </div>
                             </div>

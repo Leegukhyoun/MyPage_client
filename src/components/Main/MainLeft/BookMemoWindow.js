@@ -17,14 +17,14 @@ const BookMemoWindow = ({openBMW, onBMWOff}) => {
         dispatch(setEmer(e));
         dispatch(setUserid(userid));
     }
-    const addEmerMemo = (e) => {
+    const addEmerMemo = async (e) => {
         e.preventDefault();
         if(!emer.emertext){
             XClick();
         } else {
-            dispatch(addEmer());
             XClick();
-            dispatch(pointUser());
+            await dispatch(addEmer());
+            await dispatch(pointUser());
         }
     }
     

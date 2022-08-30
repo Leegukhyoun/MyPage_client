@@ -2315,6 +2315,9 @@ button{
                     &:hover{
                         color: var(--button-color);
                     }
+                    &:nth-child(2){
+                        margin-top: 5px;
+                    }
                 }
             }
         }
@@ -2787,6 +2790,111 @@ button{
     border: 1px solid var(--border-color);
 }
 //test
+
+//myinfoedit
+.NMC form .infoedit {
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 100px;
+
+    p {
+        width: 100%;
+        text-align: left;
+        height: 100%;
+        margin: 0;
+        margin-right: 10px;
+        padding-left: 45px;
+        margin-bottom: 5px;
+    }
+
+    input {
+        width: 320px;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        margin-bottom: 30px;
+        margin-left: 40px;
+    }
+
+    textarea {
+        resize: none;
+        width: 700px;
+        height: 400px;
+        outline: none;
+        padding-left: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        padding-top: 5px;
+        cursor: text;
+    }
+    .infoeditphone{
+        input{
+            width: 100px;
+            &:nth-child(2){
+                margin-left: 10px;
+            }
+            &:nth-child(3){
+                margin-left: 10px;
+            }
+        }
+    }
+    .infoeditemail{
+        input{
+            width: 155px;
+            &:nth-child(2){
+                margin-left: 10px;
+            }
+            &:nth-child(3){
+                margin-left: 10px;
+            }
+        }
+    }
+    .infoeditaddr{
+        display: flex;
+        flex-direction: column;
+        input{
+            margin-bottom: 10px;
+        }
+    }
+    .infoeditpic{
+        position: absolute;
+        top: 25%;
+        right: 23%;
+        img{
+            width: 300px;
+            height: 300px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+        button{
+            height: 35px;
+            border-radius: 4px;
+            position: absolute;
+            top: 105%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        input{
+            width: 80px;
+            height: 35px;
+            z-index: 5;
+            position: absolute;
+            top: 315px;
+            right: 110px;
+            margin: 0;
+            opacity: 0;
+        }
+        div{
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+}
+//myinfoedit end
+
+
 
 //반응형
 
@@ -3285,3 +3393,4 @@ button{
         height: 15%;
     }
 }
+
