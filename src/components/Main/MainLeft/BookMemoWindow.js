@@ -22,9 +22,9 @@ const BookMemoWindow = ({openBMW, onBMWOff}) => {
         if(!emer.emertext){
             XClick();
         } else {
-            XClick();
             await dispatch(addEmer());
             await dispatch(pointUser());
+            XClick();
         }
     }
     

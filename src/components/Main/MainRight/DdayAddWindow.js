@@ -20,14 +20,14 @@ const DdayAddWindow = () => {
         dispatch(setDdayInput(e));
         dispatch(setDdayUserid(userid));
     }
-    const addDdayMemo = (e) => {
+    const addDdayMemo = async (e) => {
         e.preventDefault();
         if(!data.datetext){
             DAWBtn();
         } else {
-            dispatch(addDday());
+            await dispatch(addDday());
+            await dispatch(pointUser());
             DAWBtn();
-            dispatch(pointUser());
         }
     }
     return (
