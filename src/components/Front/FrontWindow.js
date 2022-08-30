@@ -151,11 +151,11 @@ const FrontWindow = () => {
                                     <td><input type="text" name='name' value={createUser.name} onChange={SignUpInput} placeholder='이름을 입력해주세요.' spellCheck="false" autoComplete='off' /></td>
                                 </tr>
                                 <tr>
-                                    <td>＊ 비밀번호 : </td>
+                                    <td>＊ PW : </td>
                                     <td><input type="password" name='pw' value={createUser.pw} onChange={SignUpInput} placeholder='비밀번호를 입력해주세요.' spellCheck="false" autoComplete='off'/></td>
                                 </tr>
                                 <tr>
-                                    <td>＊ 비밀번호 확인 : </td>
+                                    <td>＊ PW확인 : </td>
                                     <td><input type="password" name='pwch' value={createUser.pwch} onChange={SignUpInput} placeholder='비밀번호를 다시 입력해주세요.' spellCheck="false" autoComplete='off'/></td>
                                 </tr>
                                 <tr>
